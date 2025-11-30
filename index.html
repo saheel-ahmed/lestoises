@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>lestoises Landing Page</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#2b6cee",
+            "background-light": "#f6f6f8",
+            "background-dark": "#101622",
+          },
+          fontFamily: {
+            "display": ["Manrope", "sans-serif"]
+          },
+          borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          keyframes: {
+            fadeInUp: {
+              '0%': { opacity: '0', transform: 'translateY(20px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+            particleFloat: {
+              '0%, 100%': { transform: 'translate(0, 0)' },
+              '25%': { transform: 'translate(10px, -15px)' },
+              '50%': { transform: 'translate(-10px, 10px)' },
+              '75%': { transform: 'translate(15px, 5px)' },
+            },
+            rotate: {
+              '0%': { transform: 'rotate(0deg)' },
+              '100%': { transform: 'rotate(360deg)' },
+            },
+            bgPosition: {
+              '0%': { 'background-position': '0% 50%' },
+              '50%': { 'background-position': '100% 50%' },
+              '100%': { 'background-position': '0% 50%' },
+            }
+          },
+          animation: {
+            'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+            'particle-float-1': 'particleFloat 15s ease-in-out infinite',
+            'particle-float-2': 'particleFloat 20s ease-in-out infinite reverse',
+            'rotate': 'rotate 200s linear infinite',
+            'bg-pan': 'bgPosition 15s ease-in-out infinite',
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 1;
+    }
+  </style>
+</head>
+<body class="font-display">
+<div class="relative flex h-auto min-h-screen w-full flex-col bg-background-light dark:bg-background-dark group/design-root overflow-x-hidden">
+<div class="absolute inset-0 z-0 h-full w-full bg-[radial-gradient(circle_at_20%_25%,rgba(43,108,238,0.1)_0%,transparent_30%),radial-gradient(circle_at_80%_30%,rgba(132,59,243,0.1)_0%,transparent_30%),radial-gradient(circle_at_50%_70%,rgba(59,243,187,0.08)_0%,transparent_35%)] animate-bg-pan"></div>
+<div class="layout-container flex h-full grow flex-col z-10">
+<div class="px-4 sm:px-8 md:px-16 lg:px-24 xl:px-40 flex flex-1 justify-center py-5">
+<div class="layout-content-container flex flex-col w-full max-w-[960px] flex-1">
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-white/10 dark:border-b-[#282e39] px-4 sm:px-10 py-3">
+<div class="flex items-center gap-4 text-black dark:text-white">
+<div class="size-5">
+<svg fill="currentColor" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M39.475 21.6262C40.358 21.4363 40.6863 21.5589 40.7581 21.5934C40.7876 21.655 40.8547 21.857 40.8082 22.3336C40.7408 23.0255 40.4502 24.0046 39.8572 25.2301C38.6799 27.6631 36.5085 30.6631 33.5858 33.5858C30.6631 36.5085 27.6632 38.6799 25.2301 39.8572C24.0046 40.4502 23.0255 40.7407 22.3336 40.8082C21.8571 40.8547 21.6551 40.7875 21.5934 40.7581C21.5589 40.6863 21.4363 40.358 21.6262 39.475C21.8562 38.4054 22.4689 36.9657 23.5038 35.2817C24.7575 33.2417 26.5497 30.9744 28.7621 28.762C30.9744 26.5497 33.2417 24.7574 35.2817 23.5037C36.9657 22.4689 38.4054 21.8562 39.475 21.6262ZM4.41189 29.2403L18.7597 43.5881C19.8813 44.7097 21.4027 44.9179 22.7217 44.7893C24.0585 44.659 25.5148 44.1631 26.9723 43.4579C29.9052 42.0387 33.2618 39.5667 36.4142 36.4142C39.5667 33.2618 42.0387 29.9052 43.4579 26.9723C44.1631 25.5148 44.659 24.0585 44.7893 22.7217C44.9179 21.4027 44.7097 19.8813 43.5881 18.7597L29.2403 4.41187C27.8527 3.02428 25.8765 3.02573 24.2861 3.36776C22.6081 3.72863 20.7334 4.58419 18.8396 5.74801C16.4978 7.18716 13.9881 9.18353 11.5858 11.5858C9.18354 13.988 7.18717 16.4978 5.74802 18.8396C4.58421 20.7334 3.72865 22.6081 3.36778 24.2861C3.02574 25.8765 3.02429 27.8527 4.41189 29.2403Z" fill-rule="evenodd"></path>
+</svg>
+</div>
+<h2 class="text-black dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">lestoises</h2>
+</div>
+<div class="flex flex-1 justify-end gap-8">
+<div class="hidden md:flex items-center gap-9">
+<a class="text-black/80 dark:text-white/80 text-sm font-medium leading-normal hover:text-black dark:hover:text-white transition-colors" href="#">Features</a>
+<a class="text-black/80 dark:text-white/80 text-sm font-medium leading-normal hover:text-black dark:hover:text-white transition-colors" href="#">Testimonials</a>
+<a class="text-black/80 dark:text-white/80 text-sm font-medium leading-normal hover:text-black dark:hover:text-white transition-colors" href="#">About</a>
+</div>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors">
+<span class="truncate">Sign Up</span>
+</button>
+</div>
+</header>
+<main class="flex flex-col gap-10 md:gap-20">
+<div class="@container mt-10">
+<div class="@[480px]:p-4">
+<div class="relative flex min-h-[480px] flex-col gap-6 overflow-hidden bg-black/20 backdrop-blur-2xl @[480px]:gap-8 @[480px]:rounded-xl items-center justify-center p-4">
+<div class="absolute inset-0 z-0 h-full w-full bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBOjQ7YJzpVTV1xE0qCv1LeuQh_T6oNH6dfbMlYtOMIHbIOqtuXwSXcbs3ouh-GxFFdAgUjiwYGUNge6B20Q09zPSyIQFAJg5mmd9I18zIBnFz-7PX7q7YLgyuAj--T80oR8W2FaAuewpHtQz7S6qKQZfigumGyN7n8MtDzLK4ax1wYriFvNgnpga4tWEVonEj-0pgeQ0iF-7feyEAbMcdU63owN8_PqCRDMxGVxc9F2n5lVft5Pk9bVyIoMRr5udN2oDK1b3TvshNG'); opacity: 0.1;"></div>
+<div class="absolute inset-0 z-0 bg-[radial-gradient(circle_at_15%_20%,rgba(43,108,238,0.2)_0%,transparent_30%),radial-gradient(circle_at_80%_25%,rgba(132,59,243,0.15)_0%,transparent_30%),radial-gradient(circle_at_20%_80%,rgba(59,243,187,0.15)_0%,transparent_35%),radial-gradient(circle_at_85%_75%,rgba(243,59,149,0.2)_0%,transparent_40%)]"></div>
+<div class="relative z-10 flex flex-row items-center gap-8 lg:gap-16 w-full max-w-4xl px-4 sm:px-8">
+<div class="flex-1 flex flex-col items-center md:items-start text-center md:text-left gap-4">
+<h1 class="text-white text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-5xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em]">Your Personal Path to Mental Wellness</h1>
+<h2 class="text-white/90 text-sm font-normal leading-normal @[480px]:text-base @[480px]:font-normal @[480px]:leading-normal">Meet lestoises, your confidential AI companion, here to listen and support you, anytime, anywhere.</h2>
+<button class="relative z-10 flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em] hover:bg-primary/90 transition-colors mt-2">
+<span class="truncate">Start Your Journey for Free</span>
+</button>
+</div>
+<div class="hidden md:flex w-1/3 max-w-[280px] aspect-[3/4] rounded-xl overflow-hidden shadow-2xl relative flex-shrink-0">
+<div class="absolute inset-0 grid grid-cols-2 grid-rows-2 gap-1.5">
+<div class="bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAMsmn1DsyQ8zdMlTKUfc18SkMZHBAWTsr2YZWW3YAuLOI2AucJHMFbJiizZPGxfCJ2LZeadnLifdtDHhkqps-2KFN3XS5F9u5-67eFll2_KrfdyhHuLg3cz8XeG0X4vv7Ieb_XIVqFi_akK0hj3rXCWhXic0ZsAyPV5MTtm8wbiwy9tJ7GeL_TuFSWlgnGP8_bAyXQT_H3ZY5q4LPHS9ykcgX5LW6WRaTTvzW56uHqEzbToiM9n37fDGdHLGM2RE31Jkw2bAgVXuHj');"></div>
+<div class="bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAG4nbY3cZ8GHmVyWSiIOsj23Kb5U8mkfpcmxTXz8ASoDLJdWCzdRk_29abJbJKWo7ZPQBNS_oiAxNPc8mSyQj89dVqpXtlYD8suDo1RdTrlzFqdsy51njdED815_DFkc5KZHJTU02z01xYUzKCesuHrcr3Z2nXpMtdwxXZ12WH_qb_b_gO9sinsha3RvxXCnJeyXuw2mkWkM6Cn1aCvFPkU4bj_v1rhrt2hY-lq6WNAt3QDWf-2ZjX1jiDK0d-8XFndswtryM6-Dyx');"></div>
+<div class="col-span-2 bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAG4nbY3cZ8GHmVyWSiIOsj23Kb5U8mkfpcmxTXz8ASoDLJdWCzdRk_29abJbJKWo7ZPQBNS_oiAxNPc8mSyQj89dVqpXtlYD8suDo1RdTrlzFqdsy51njdED815_DFkc5KZHJTU02z01xYUzKCesuHrcr3Z2nXpMtdwxXZ12WH_qb_b_gO9sinsha3RvxXCnJeyXuw2mkWkM6Cn1aCvFPkU4bj_v1rhrt2hY-lq6WNAt3QDWf-2ZjX1jiDK0d-8XFndswtryM6-Dyx');"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-10 px-4 py-10 @container">
+<div class="flex flex-col gap-4">
+<h1 class="text-black dark:text-white tracking-light text-[32px] font-bold leading-tight @[480px]:text-4xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em] max-w-[720px]">Support That Understands You</h1>
+<p class="text-black/80 dark:text-white/80 text-base font-normal leading-normal max-w-[720px]">lestoises is designed to provide a safe and supportive space for your thoughts and feelings.</p>
+</div>
+<div class="grid grid-cols-[repeat(auto-fit,minmax(240px,1fr))] gap-4 p-0">
+<div class="flex flex-1 gap-4 rounded-xl border border-black/10 dark:border-[#3b4354] bg-white dark:bg-[#1c1f27] p-6 flex-col">
+<div class="text-primary"><span class="material-symbols-outlined" style="font-size: 32px;">person</span></div>
+<div class="flex flex-col gap-1">
+<h2 class="text-black dark:text-white text-base font-bold leading-tight">Personalized Support</h2>
+<p class="text-black/70 dark:text-[#9da6b9] text-sm font-normal leading-normal">Our AI adapts to your needs, offering conversations that are relevant to you.</p>
+</div>
+</div>
+<div class="flex flex-1 gap-4 rounded-xl border border-black/10 dark:border-[#3b4354] bg-white dark:bg-[#1c1f27] p-6 flex-col">
+<div class="text-primary"><span class="material-symbols-outlined" style="font-size: 32px;">schedule</span></div>
+<div class="flex flex-col gap-1">
+<h2 class="text-black dark:text-white text-base font-bold leading-tight">24/7 Availability</h2>
+<p class="text-black/70 dark:text-[#9da6b9] text-sm font-normal leading-normal">Your companion is always available, providing a listening ear whenever you need it.</p>
+</div>
+</div>
+<div class="flex flex-1 gap-4 rounded-xl border border-black/10 dark:border-[#3b4354] bg-white dark:bg-[#1c1f27] p-6 flex-col">
+<div class="text-primary"><span class="material-symbols-outlined" style="font-size: 32px;">savings</span></div>
+<div class="flex flex-col gap-1">
+<h2 class="text-black dark:text-white text-base font-bold leading-tight">Cost-Effective Care</h2>
+<p class="text-black/70 dark:text-[#9da6b9] text-sm font-normal leading-normal">Access mental wellness support at a fraction of the cost of traditional therapy.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-8 px-4">
+<h2 class="text-black dark:text-white text-center text-3xl font-bold leading-tight tracking-[-0.015em]">Kind Words From Our Users</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<div class="flex flex-col gap-4 bg-white dark:bg-[#1c1f27] p-6 rounded-xl border border-black/10 dark:border-[#3b4354]">
+<div class="flex items-center gap-3">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="Avatar of user Alex J." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCmKD_F22MRkkygAmEedSndEjYwa38-niyiieVnwmr_MKra4ozqTgZzh1n7-yWSqzQEJSkBGlsv8Of6FMIF1WRlXU9B90ma_GTxi1Yz93Fp80XKxa1R0ZtQR6XilM1A8DKVT5v876rLCKB5BaW7VZadBWXpzbJZIwF_OSHH1zaEK2daAhlnKzW8Rg5Zx93jBeILSStHumSo9UyqbFQjHCDVEzh6LZdH8kS4r5CVcV8y6UPfiFqIMg2TLrIReUdF967P-vav26oGmDAD");'></div>
+<div class="flex-1">
+<p class="text-black dark:text-white text-base font-medium leading-normal">Alex J.</p>
+</div>
+</div>
+<div class="flex gap-0.5 text-primary">
+<span class="material-symbols-outlined" style="font-size: 20px;">star</span>
+<span class="material-symbols-outlined" style="font-size: 20px;">star</span>
+<span class="material-symbols-outlined" style="font-size: 20px;">star</span>
+<span class="material-symbols-outlined" style="font-size: 20px;">star</span>
+<span class="material-symbols-outlined" style="font-size: 20px;">star</span>
+</div>
+<p class="text-black/90 dark:text-white/90 text-base font-normal leading-normal">lestoises has been a game-changer for my daily stress management. It's so helpful to have a non-judgmental space to unload my thoughts.</p>
+</div>
+<div class="flex flex-col gap-4 bg-white dark:bg-[#1c1f27] p-6 rounded-xl border border-black/10 dark:border-[#3b4354]">
+<div class="flex items-center gap-3">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="Avatar of user Maria S." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBckDlmEzLlA2d_NuZgM65ggQQYl5gSOMNMP5G6aQKBRGVfmD7GNtPeg5GL0EacF8dO98GTwFysY_Jg4IgtsYVK2pkQ7TKUE3xXSMIyC8bP0Z-z-htOygmxfQJX2S7qfs-NUcxsqVS_Ozqcaz7uUzOyMuYOZF2Pmyk5b3zdUeqZBnnTx5ARG89cF5FYOUfTCbrLwIQ46ePEQsvOPm80DcmpBBBcoDfIEPTgglXnWPh27zyPAz1w7ZsKS_yXekxqxlIFHANgxtayGA3G");'></div>
+<div class="flex-1">
+<p class="text-black dark:text-white text-base font-medium leading-normal">Maria S.</p>
+</div>
+</div>
+<div class="flex gap-0.5 text-primary">
+<span class="material-symbols-outlined" style="font-size: 20px;">star</span>
+<span class="material-symbols-outlined" style="font-size: 20px;">star</span>
+<span class="material-symbols-outlined" style="font-size: 20px;">star</span>
+<span class="material-symbols-outlined" style="font-size: 20px;">star</span>
+<span class="material-symbols-outlined" style="font-size: 20px;">star</span>
+</div>
+<p class="text-black/90 dark:text-white/90 text-base font-normal leading-normal">I was skeptical at first, but the conversations feel genuinely supportive. It’s like a journal that talks back and helps you reflect.</p>
+</div>
+<div class="flex flex-col gap-4 bg-white dark:bg-[#1c1f27] p-6 rounded-xl border border-black/10 dark:border-[#3b4354]">
+<div class="flex items-center gap-3">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="Avatar of user David L." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCAwymPwU-Y0I5ysnvX5lZkKe9pBG6qthR9WEHhuf-vkjDSX4ERN9GTgwdGSVxguIvhpnRn9gEx4hlQkS9w0aMQ41-XZh7ZS_F-jtA7MlgnFvEmJQxkW0QpmCfeEkOC__qdOJVE5hDOTaGgh0g1m--DHVhhwnABahDg6SA_TN4Z_chjQkwVOJMoIdojq_nebYsU5NUf5yWfxFofS4O8aZwcxNVjQ5Ec6vBrN5kET7TXU33l9P4xSoiqtKHxtly9uPzwMg6DI1W9tipS");'></div>
+<div class="flex-1">
+<p class="text-black dark:text-white text-base font-medium leading-normal">David L.</p>
+</div>
+</div>
+<div class="flex gap-0.5 text-primary">
+<span class="material-symbols-outlined" style="font-size: 20px;">star</span>
+<span class="material-symbols-outlined" style="font-size: 20px;">star</span>
+<span class="material-symbols-outlined" style="font-size: 20px;">star</span>
+<span class="material-symbols-outlined" style="font-size: 20px;">star</span>
+<span class="material-symbols-outlined" style="font-size: 20px;">star</span>
+</div>
+<p class="text-black/90 dark:text-white/90 text-base font-normal leading-normal">The 24/7 availability is incredible. I've used it late at night when I couldn't sleep, and it really helped calm my anxiety.</p>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center px-4 py-10">
+<div class="flex flex-col gap-4">
+<h2 class="text-black dark:text-white text-[32px] font-bold leading-tight tracking-[-0.015em]">Deeper Insights with Every Conversation</h2>
+<p class="text-black/80 dark:text-white/80 text-base font-normal leading-normal">lestoises remembers your past conversations to provide a continuous, evolving, and more personalized support journey. By recalling key details, it understands your context better over time, leading to more meaningful and effective guidance without you having to repeat yourself.</p>
+<div class="flex items-center gap-2 text-black/80 dark:text-white/80 mt-4">
+<span class="material-symbols-outlined text-xl">lock</span>
+<p class="text-sm">Your conversations are private and secure.</p>
+</div>
+</div>
+<div class="flex justify-center items-center p-4">
+<div class="w-full max-w-sm bg-white dark:bg-[#1c1f27] rounded-xl border border-black/10 dark:border-[#3b4354] p-4 flex flex-col gap-4 shadow-lg">
+<div class="flex justify-start">
+<div class="bg-primary/20 text-primary p-3 rounded-lg max-w-[80%]">
+<p class="text-sm">I've been feeling really overwhelmed with work lately.</p>
+</div>
+</div>
+<div class="flex justify-end">
+<div class="bg-gray-200 dark:bg-gray-700 p-3 rounded-lg max-w-[80%]">
+<p class="text-sm text-black dark:text-white">I remember you mentioned the big project last week. How is that progressing?</p>
+</div>
+</div>
+<div class="flex justify-start">
+<div class="bg-primary/20 text-primary p-3 rounded-lg max-w-[80%]">
+<p class="text-sm">It's stressful, but talking about it helps.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<footer class="mt-20 border-t border-solid border-white/10 dark:border-b-[#282e39] py-8 px-4">
+<div class="flex flex-col md:flex-row justify-between items-center gap-6">
+<p class="text-sm text-black/60 dark:text-white/60">© 2024 lestoises. All rights reserved.</p>
+<div class="flex gap-6">
+<a class="text-sm text-black/80 dark:text-white/80 hover:text-black dark:hover:text-white transition-colors" href="#">Terms of Service</a>
+<a class="text-sm text-black/80 dark:text-white/80 hover:text-black dark:hover:text-white transition-colors" href="#">Privacy Policy</a>
+<a class="text-sm text-black/80 dark:text-white/80 hover:text-black dark:hover:text-white transition-colors" href="#">Contact</a>
+</div>
+</div>
+</footer>
+</div>
+</div>
+</div>
+</div>
+</body></html>
