@@ -100,28 +100,33 @@
 <body class="font-display bg-background-light text-gray-800">
     <div class="relative flex min-h-screen w-full flex-col group/design-root overflow-x-hidden">
         <div class="layout-container flex h-full grow flex-col">
-            <header
-                class="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap px-4 sm:px-10 lg:px-20 py-4 bg-white/80 backdrop-blur-sm border-b border-gray-200">
-                <div class="flex items-center gap-4">
-                    <a class="flex items-center gap-3" href="#">
-                        <img alt="lestoises logo" class="h-10 w-auto"
-                            src="https://saheel-ahmed.github.io/lestoises/assets/img/lestoises-logo.png"
-                            srcset="" />
-                    </a>
-                </div>
-                <nav class="hidden md:flex items-center gap-9 absolute left-1/2 -translate-x-1/2">
-                    <a class="text-gray-600 hover:text-brand-primary text-sm font-medium leading-normal" href="#">For
-                        whom</a>
-                    <a class="text-gray-600 hover:text-brand-primary text-sm font-medium leading-normal" href="#">Our
-                        approach</a>
-                    <a class="text-gray-600 hover:text-brand-primary text-sm font-medium leading-normal"
-                        href="#">Contact</a>
-                </nav>
-                <div class="flex items-center gap-2">
-                    <button
-                        class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-5 bg-brand-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-opacity-90">
-                        <span class="truncate">Book an appointment</span>
-                    </button>
+            <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-sm border-b border-gray-200">
+                <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                    <div class="flex items-center justify-between whitespace-nowrap py-4">
+                        <div class="flex items-center gap-4">
+                            <a class="flex items-center gap-3" href="#">
+                                <img alt="lestoises logo" class="h-10 w-auto"
+                                    src="https://saheel-ahmed.github.io/lestoises/assets/img/lestoises-logo.png"
+                                    srcset="" />
+                            </a>
+                        </div>
+                        <nav class="hidden md:flex items-center gap-9 absolute left-1/2 -translate-x-1/2">
+                            <a class="text-gray-600 hover:text-brand-primary text-sm font-medium leading-normal"
+                                href="#">For
+                                whom</a>
+                            <a class="text-gray-600 hover:text-brand-primary text-sm font-medium leading-normal"
+                                href="#">Our
+                                approach</a>
+                            <a class="text-gray-600 hover:text-brand-primary text-sm font-medium leading-normal"
+                                href="#">Contact</a>
+                        </nav>
+                        <div class="flex items-center gap-2">
+                            <button
+                                class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-5 bg-brand-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-opacity-90">
+                                <span class="truncate">Sign in</span>
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </header>
             <main class="flex-1">
@@ -129,11 +134,17 @@
                     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center py-16 lg:py-24">
                             <div class="flex flex-col gap-6 items-start text-left">
-                                <h1 class="text-brand-primary text-4xl font-bold leading-tight tracking-tight lg:text-5xl animate-slideInRight"
-                                    style="animation-delay: 0.2s;">Psychological support, wherever you are.</h1>
-                                <p class="text-gray-600 text-lg max-w-md animate-slideInRight"
-                                    style="animation-delay: 0.4s;">We help you find the right psychologist for you, for
-                                    online or in-office consultations.</p>
+                                <div class="text-brand-primary text-5xl font-light leading-tight tracking-tight animate-slideInRight"
+                                    style="animation-delay: 0.2s;">
+                                    <div>Take control of</div>
+                                    <div>your mental health.</div>
+                                </div>
+                                <div class="text-gray-600 text-lg max-w-md animate-slideInRight"
+                                    style="animation-delay: 0.4s;">
+                                    <div class="text-4xl">Connect with a <span class="font-bold">licensed therapist</span> online</div>
+                                    <div class="text-5xl">in complete privacy,</div> 
+                                    <div class="text-7xl font-semibold">anytime, anywhere.</div>
+                                </div>
                                 <button
                                     class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-6 bg-brand-primary text-white text-base font-bold leading-normal tracking-[0.015em] hover:bg-opacity-90 animate-slideInUp"
                                     style="animation-delay: 0.6s;">
@@ -141,9 +152,11 @@
                                 </button>
                             </div>
                             <div class="flex items-center justify-center animate-zoomIn" style="animation-delay: 0.2s;">
-                                <img alt="A compassionate Swiss female psychologist in a modern, welcoming office."
-                                    class="rounded-2xl w-full h-auto max-w-lg object-cover shadow-lg"
-                                    src="https://saheel-ahmed.github.io/lestoises/assets/img/header-min.png" />
+                                <video autoplay muted loop class="absolute w-0 h-0 overflow-hidden">
+                                    <source
+                                        src="https://saheel-ahmed.github.io/lestoises/assets/img/header-video.mp4"
+                                        type="video/mp4" />
+                                </video>
                             </div>
                         </div>
                     </div>
@@ -373,7 +386,9 @@
                                     src="https://saheel-ahmed.github.io/lestoises/assets/img/lestoises-logo-white.png"
                                     srcset="" />
                             </a>
-                            <p class="text-gray-300 text-sm">Your mental health matters. Reach out to our qualified professionals anytime, anywhere—use the button below or start a conversation via the chat window.</p>
+                            <p class="text-gray-300 text-sm">Your mental health matters. Reach out to our qualified
+                                professionals anytime, anywhere—use the button below or start a conversation via the
+                                chat window.</p>
                         </div>
                         <div>
                             <h4 class="font-semibold mb-4 text-white">Navigation</h4>
@@ -391,8 +406,8 @@
                                 <li><a class="text-gray-300 hover:text-white text-sm" href="#">Privacy policy</a></li>
                             </ul>
 
-                            <img src="https://saheel-ahmed.github.io/lestoises/assets/img/secure-ssl.png" alt="Secure SSL"
-                                class="mt-6 w-24" />
+                            <img src="https://saheel-ahmed.github.io/lestoises/assets/img/secure-ssl.png"
+                                alt="Secure SSL" class="mt-6 w-24" />
                         </div>
                         <div>
                             <h4 class="font-semibold mb-4 text-white">Follow us</h4>
@@ -419,7 +434,7 @@
                                     </svg>
                                 </a>
                             </div>
-                             <div class="flex flex-col gap-2 mt-4">
+                            <div class="flex flex-col gap-2 mt-4">
                                 <button
                                     class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-5 bg-brand-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-opacity-90">
                                     <span class="truncate">Join as a patient</span>
