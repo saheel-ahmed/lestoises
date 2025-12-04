@@ -34,6 +34,10 @@
                         "background-dark": "#101921",
                         "brand-primary": "#9C804E",
                         "brand-secondary": "#FAF8F3",
+                        // Futuristic/AI-themed colors (Violet, Pink, Cyan)
+                        'ai-start': '#8B5CF6', // Violet-500
+                        'ai-middle': '#EC4899', // Pink-500
+                        'ai-end': '#06B6D4', // Cyan-500
                     },
                     fontFamily: {
                         "display": ["Montserrat", "sans-serif"]
@@ -59,6 +63,33 @@
             background-size: 512px 512px;
             background-position: center center;
             background-attachment: fixed
+        }
+    </style>
+    <style>
+        /* 1. KEYFRAMES: Defines the continuous diagonal movement of the background gradient */
+        @keyframes gradient-shift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* 2. BASE STYLES: Essential setup for the animation and default state */
+        .animated-gradient-button {
+            /* REQUIRED for the shifting effect: makes the background 3x the size of the button */
+            background-size: 300% 300%;
+            /* Use transform property for GPU acceleration (already done with scale) */
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Using Tailwind's default ease */
+            color: white;
+            /* Initial shadow for a base glow effect */
+            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4); 
+        }
+
+        /* 3. HOVER STYLES: Activates the animation and lift effect */
+        .animated-gradient-button:hover {
+            animation: gradient-shift 4s ease infinite; /* Activate continuous gradient shift */
+            transform: scale(1.06); /* Increased lift */
+            /* Enhanced shadow/glow on hover for dramatic effect */
+            box-shadow: 0 12px 30px rgba(139, 92, 246, 0.7), 0 0 60px rgba(236, 72, 153, 0.6); 
         }
     </style>
     <script>
@@ -153,12 +184,11 @@
             <main class="flex-1">
                 <section class="w-full bg-[#F3F6F4]">
                     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
-                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center py-12 lg:py-24">
-                            <div class="flex flex-col gap-6 items-start text-left">
-                                <div class="text-brand-primary text-5xl font-light leading-tight tracking-tight animate-slideInRight"
+                        <div class="grid grid-cols-1 lg:grid-cols-5 gap-12 items-center py-12 lg:py-24">
+                            <div class="flex flex-col gap-6 items-start text-left lg:col-span-2">
+                                <div class="hidden text-brand-primary text-xl font-light leading-tight tracking-tight animate-slideInRight"
                                     style="animation-delay: 0.2s;">
-                                    <div>Take control of</div>
-                                    <div>your mental health.</div>
+                                    <div>Take control of your mental health.</div>
                                 </div>
                                 <div class="text-gray-600 text-lg max-w-md animate-slideInRight"
                                     style="animation-delay: 0.4s;">
@@ -167,15 +197,15 @@
                                     <div class="text-5xl">in complete privacy,</div>
                                     <div class="text-7xl font-semibold">anytime, anywhere.</div>
                                 </div>
-                                <button
-                                    class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-6 bg-brand-primary text-white text-base font-bold leading-normal tracking-[0.015em] hover:bg-opacity-90 animate-slideInUp"
-                                    style="animation-delay: 0.6s;">
-                                    <span class="truncate">Book an appointment</span>
+                                <button class="animated-gradient-button py-3 px-6 font-semibold rounded-full bg-gradient-to-br from-ai-start via-ai-middle to-ai-end focus:outline-none  focus:ring-4 focus:ring-ai-start/70">
+                                    Book an appointment
                                 </button>
                             </div>
-                            <div class="flex items-center justify-center animate-zoomIn" style="animation-delay: 0.2s;">
-                                <video autoplay muted loop class="">
-                                    <source src="https://saheel-ahmed.github.io/lestoises/assets/video/v1.mp4"
+
+                            <div class="flex items-center justify-center animate-zoomIn lg:col-span-3"
+                                style="animation-delay: 0.2s;">
+                                <video autoplay muted loop class="w-full h-auto border shadow-lg rounded-xl">
+                                    <source src="https://saheel-ahmed.github.io/lestoises/assets/video/v2.mp4"
                                         type="video/mp4" />
                                 </video>
                             </div>
