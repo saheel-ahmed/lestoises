@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Les Toises | Profile</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roobert:wght@400;500;700;800&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <style type="text/tailwindcss">
+        @import url('https://fonts.googleapis.com/css2?family=Roobert:wght@400;500;700;800&display=swap');
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes slideInUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+    @keyframes slideInRight { from { transform: translateX(-20px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+    @keyframes zoomIn { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+    .animate-fadeIn { animation: fadeIn 1s ease-out forwards; }
+    .animate-slideInUp { animation: slideInUp 0.8s ease-out forwards; }
+    .animate-slideInRight { animation: slideInRight 0.8s ease-out forwards; }
+    .animate-zoomIn { animation: zoomIn 0.8s ease-out forwards; }
+</style>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#9C804E",
+                        "secondary": "#FAF8F3",
+                        "background-light": "#FFFFFF",
+                        "background-dark": "#101921",
+                        "brand-primary": "#9C804E",
+                        "brand-secondary": "#FAF8F3",
+                    },
+                    fontFamily: {
+                        "display": ["Roobert", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        pulse: {
+                            '0%, 100%': { opacity: 1 },
+                            '50%': { opacity: 0.8 },
+                        },
+                        fadeIn: {
+                            '0%': { opacity: 0, transform: 'scale(0.95) translateY(10px)' },
+                            '100%': { opacity: 1, transform: 'scale(1) translateY(0px)' },
+                        },
+                    },
+                    animation: {
+                        float: 'float 4s ease-in-out infinite',
+                        pulse: 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        fadeIn: 'fadeIn 0.5s ease-out forwards',
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24
+        }
+
+        .parallax-bg {
+            background-image: url('https://saheel-ahmed.github.io/lestoises/assets/img/lestoises-app-256x256.png');
+            background-repeat: no-repeat;
+            background-size: 512px 512px;
+            background-position: center center;
+            background-attachment: fixed
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const counters = document.querySelectorAll('.counter');
+            const speed = 200; // The lower the slower
+            const animate = (counter) => {
+                const target = +counter.getAttribute('data-count');
+                let count = 0;
+                const updateCount = () => {
+                    const inc = Math.ceil(target / speed);
+                    count += inc;
+                    if (count < target) {
+                        counter.innerText = count.toLocaleString('en-US');
+                        setTimeout(updateCount, 15);
+                    } else {
+                        counter.innerText = target.toLocaleString('en-US');
+                    }
+                };
+                updateCount();
+            };
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animate(entry.target);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.5
+            });
+            counters.forEach(counter => {
+                observer.observe(counter);
+            });
+        });
+    </script>
+    <style type="text/tailwindcss">
+        .gemini-gradient {
+      background: linear-gradient(90deg, #4285F4, #9B72CB, #D96570, #F2A60C);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
+    }
+    .gemini-icon-gradient {
+      background: linear-gradient(135deg, #4285F4, #9B72CB, #D96570, #F2A60C);
+    }
+    .robot-shadow {
+      filter: drop-shadow(0 20px 13px rgb(0 0 0 / 0.1)) drop-shadow(0 8px 5px rgb(0 0 0 / 0.08));
+    }
+  </style>
+</head>
+
+<body class="font-display bg-background-light text-gray-800">
+    <div class="relative flex min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+        <div class="layout-container flex h-full grow flex-col">
+            <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-sm border-b border-gray-200">
+                <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                    <div class="flex items-center justify-between whitespace-nowrap py-4">
+                        <div class="flex items-center gap-4">
+                            <a class="flex items-center gap-3" href="#">
+                                <img alt="lestoises logo" class="h-10 w-auto"
+                                    src="https://saheel-ahmed.github.io/lestoises/assets/img/lestoises-logo.png"
+                                    srcset="" />
+                            </a>
+                        </div>
+                        <nav class="hidden md:flex items-center gap-9 absolute left-1/2 -translate-x-1/2">
+                            <a class="text-gray-600 hover:text-brand-primary text-sm font-medium leading-normal"
+                                href="#">For
+                                whom</a>
+                            <a class="text-gray-600 hover:text-brand-primary text-sm font-medium leading-normal"
+                                href="#">Our
+                                approach</a>
+                            <a class="text-gray-600 hover:text-brand-primary text-sm font-medium leading-normal"
+                                href="#">Contact</a>
+                        </nav>
+                        <div class="flex items-center gap-2">
+                            <button
+                                class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-5 bg-brand-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-opacity-90">
+                                <span class="truncate">Sign in</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <main class="flex-1 bg-brand-secondary">
+
+                <div class="relative w-full h-[450px] overflow-hidden">
+                    <video autoplay=""
+                        class="absolute top-1/2 left-1/2 w-full h-full min-w-full min-h-full object-cover transform -translate-x-1/2 -translate-y-1/2 z-0"
+                        loop="" muted="" playsinline="">
+                        <source
+                            src="https://assets.mixkit.co/videos/preview/mixkit-therapist-giving-a-patient-advice-4537-large.mp4"
+                            type="video/mp4" />
+                    </video>
+                    <div class="absolute inset-0 bg-black/60 z-10"></div>
+                    <div
+                        class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-20 h-full flex flex-col justify-end pb-8">
+                        <div class="mb-4">
+                            <div class="flex flex-wrap items-center gap-2 text-white/90">
+                                <a class="hover:text-white text-base font-medium leading-normal flex items-center gap-1"
+                                    href="#">Therapists List</a>
+                                <span class="opacity-70">/</span>
+                                <span class="text-white font-medium leading-normal">Dr. Alisha Grant</span>
+                            </div>
+                        </div>
+                        <div class="flex items-end gap-6">
+                            <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg h-40 w-40 flex-shrink-0 border-4 border-white shadow-lg"
+                                data-alt="Professional headshot of Dr. Alisha Grant"
+                                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBnC2Ea4HtNITjYY_0mz3TE5nE5s0lsJL9K4nPMiuYzUxh3hE-dUnhj_HZUWPb-nyjP23EOrf0sIID96Dcp00xHIkSBsPfaHP1lrUwYExEGjesqUhsXSUegSAYypGwgK8aVFvVIegE6uzbOPaDUyy8OxxSCJTB1NTxvjXMuCqbFISOmoeoc5h0Mdkxkg_uhgBILd0mFF1tnXJG4BLVcqOGKdsN3nXogsHjxX8kva5JJt44YD-RtYxLcBj1nxl_x7yju61uihF4Cym8");'>
+                            </div>
+                            <div class="flex-grow text-white pb-2">
+                                <h1 class="text-4xl font-bold leading-tight tracking-tight">Dr. Alisha Grant</h1>
+                                <p class="text-lg text-white/90 mt-1">Licensed Clinical Psychologist</p>
+                                <div class="flex items-center gap-6 mt-3 text-white/90">
+                                    <div class="flex items-center gap-2">
+                                        <span class="material-symbols-outlined text-xl"
+                                            style="font-variation-settings: 'FILL' 1;">star</span>
+                                        <span class="font-semibold text-base">4.9 (42 Reviews)</span>
+                                    </div>
+                                    <div class="flex items-center gap-2">
+                                        <span class="material-symbols-outlined text-xl">work_history</span>
+                                        <span class="font-semibold text-base">12 Years of Experience</span>
+                                    </div>
+                                    <div class="flex items-center gap-2">
+                                        <span class="material-symbols-outlined text-xl">translate</span>
+                                        <span class="font-semibold text-base">English, Spanish, French</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="pb-2">
+                                <button
+                                    class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-6 bg-primary text-white text-base font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors shadow-lg">
+                                    <span class="truncate">Book a Session</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                        <div class="lg:col-span-2 space-y-8">
+                            <div class="bg-white p-6 rounded-xl shadow-sm">
+                                <h3 class="text-xl font-bold text-[#111618] mb-3">About Dr. Alisha Grant
+                                </h3>
+                                <p class="text-gray-600 leading-relaxed">
+                                    Dr. Alisha Grant is a licensed clinical psychologist with over a decade of
+                                    experience helping individuals navigate life's challenges. She specializes in
+                                    Cognitive Behavioral Therapy (CBT) and mindfulness-based approaches to treat
+                                    anxiety, depression, and relationship issues. Dr. Grant believes in a collaborative,
+                                    empathetic approach, creating a safe and non-judgmental space for clients to explore
+                                    their thoughts and feelings. Her goal is to empower clients with practical tools to
+                                    foster resilience, self-awareness, and lasting positive change.
+                                </p>
+                                <hr class="my-6 border-gray-200" />
+                                <h3 class="text-xl font-bold text-[#111618] mb-3">Specializations</h3>
+                                <div class="flex flex-wrap gap-2">
+                                    <span
+                                        class="bg-primary/20 text-primary text-sm font-semibold py-1 px-3 rounded-full">Anxiety
+                                        &amp; Stress</span>
+                                    <span
+                                        class="bg-primary/20 text-primary text-sm font-semibold py-1 px-3 rounded-full">Depression</span>
+                                    <span
+                                        class="bg-primary/20 text-primary text-sm font-semibold py-1 px-3 rounded-full">Couples
+                                        Therapy</span>
+                                    <span
+                                        class="bg-primary/20 text-primary text-sm font-semibold py-1 px-3 rounded-full">Cognitive
+                                        Behavioral Therapy (CBT)</span>
+                                    <span
+                                        class="bg-primary/20 text-primary text-sm font-semibold py-1 px-3 rounded-full">Mindfulness</span>
+                                </div>
+                            </div>
+                            <div class="bg-white p-6 rounded-xl shadow-sm">
+                                <h3 class="text-xl font-bold text-[#111618] mb-4">Patient Reviews (42)
+                                </h3>
+                                <div class="space-y-6">
+                                    <div class="flex gap-4">
+                                        <div
+                                            class="w-12 h-12 rounded-full bg-gray-200 flex-shrink-0 flex items-center justify-center font-bold text-gray-500">
+                                            JD</div>
+                                        <div>
+                                            <div class="flex items-center gap-2 mb-1">
+                                                <p class="font-bold text-[#111618]">John Doe</p>
+                                                <div class="flex items-center text-yellow-500">
+                                                    <span class="material-symbols-outlined text-base"
+                                                        style="font-variation-settings: 'FILL' 1;">star</span>
+                                                    <span class="material-symbols-outlined text-base"
+                                                        style="font-variation-settings: 'FILL' 1;">star</span>
+                                                    <span class="material-symbols-outlined text-base"
+                                                        style="font-variation-settings: 'FILL' 1;">star</span>
+                                                    <span class="material-symbols-outlined text-base"
+                                                        style="font-variation-settings: 'FILL' 1;">star</span>
+                                                    <span class="material-symbols-outlined text-base"
+                                                        style="font-variation-settings: 'FILL' 1;">star</span>
+                                                </div>
+                                            </div>
+                                            <p class="text-gray-600">"Dr. Grant is incredibly
+                                                empathetic and provided me with practical tools that have genuinely
+                                                improved my life. Highly recommended."</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex gap-4">
+                                        <div
+                                            class="w-12 h-12 rounded-full bg-gray-200 flex-shrink-0 flex items-center justify-center font-bold text-gray-500">
+                                            AS</div>
+                                        <div>
+                                            <div class="flex items-center gap-2 mb-1">
+                                                <p class="font-bold text-[#111618]">Alice Smith</p>
+                                                <div class="flex items-center text-yellow-500">
+                                                    <span class="material-symbols-outlined text-base"
+                                                        style="font-variation-settings: 'FILL' 1;">star</span>
+                                                    <span class="material-symbols-outlined text-base"
+                                                        style="font-variation-settings: 'FILL' 1;">star</span>
+                                                    <span class="material-symbols-outlined text-base"
+                                                        style="font-variation-settings: 'FILL' 1;">star</span>
+                                                    <span class="material-symbols-outlined text-base"
+                                                        style="font-variation-settings: 'FILL' 1;">star</span>
+                                                    <span class="material-symbols-outlined text-base"
+                                                        style="font-variation-settings: 'FILL' 1;">star</span>
+                                                </div>
+                                            </div>
+                                            <p class="text-gray-600">"A truly transformative
+                                                experience. Her approach is both professional and warm."</p>
+                                        </div>
+                                    </div>
+                                    <button class="font-semibold text-primary hover:underline">Show all 42
+                                        reviews</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="lg:col-span-1">
+                            <div class="sticky top-24 space-y-8">
+                                <div class="bg-white p-6 rounded-xl shadow-sm">
+                                    <h3 class="text-lg font-bold text-[#111618] mb-4">Book a Session
+                                    </h3>
+                                    <div class="border border-gray-200 rounded-lg">
+                                        <div class="flex justify-between items-center p-2">
+                                            <button
+                                                class="p-2 rounded-full hover:bg-gray-100"><span
+                                                    class="material-symbols-outlined">chevron_left</span></button>
+                                            <h4 class="text-sm font-semibold">Oct 21 - 27</h4>
+                                            <button
+                                                class="p-2 rounded-full hover:bg-gray-100"><span
+                                                    class="material-symbols-outlined">chevron_right</span></button>
+                                        </div>
+                                        <div class="grid grid-cols-3 gap-2 p-2">
+                                            <button
+                                                class="text-sm text-primary border border-primary rounded-lg py-2 hover:bg-primary/10">Mon,
+                                                09:00</button>
+                                            <button
+                                                class="text-sm text-primary border border-primary rounded-lg py-2 hover:bg-primary/10">Mon,
+                                                11:00</button>
+                                            <button
+                                                class="text-sm text-primary border border-primary rounded-lg py-2 hover:bg-primary/10">Wed,
+                                                10:00</button>
+                                            <button
+                                                class="text-sm text-primary border border-primary rounded-lg py-2 hover:bg-primary/10">Wed,
+                                                14:00</button>
+                                            <button
+                                                class="text-sm text-primary border border-primary rounded-lg py-2 hover:bg-primary/10">Wed,
+                                                16:00</button>
+                                            <button
+                                                class="text-sm text-primary border border-primary rounded-lg py-2 hover:bg-primary/10">Fri,
+                                                09:00</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bg-white p-6 rounded-xl shadow-sm">
+                                    <h3 class="text-lg font-bold text-[#111618] mb-4">Certificates &amp;
+                                        Licenses</h3>
+                                    <ul class="space-y-3">
+                                        <li class="flex items-center gap-3 text-gray-600">
+                                            <span class="material-symbols-outlined text-primary text-xl">verified</span>
+                                            <span class="font-medium text-sm">PhD in Clinical Psychology</span>
+                                        </li>
+                                        <li class="flex items-center gap-3 text-gray-600">
+                                            <span class="material-symbols-outlined text-primary text-xl">verified</span>
+                                            <span class="font-medium text-sm">State Licensed Psychologist (CA)</span>
+                                        </li>
+                                        <li class="flex items-center gap-3 text-gray-600">
+                                            <span class="material-symbols-outlined text-primary text-xl">verified</span>
+                                            <span class="font-medium text-sm">Certified in Cognitive Behavioral Therapy
+                                                (CBT)</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </main>
+            <footer class="bg-[#4d4d4f] text-white relative overflow-hidden">
+                <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 relative z-10">
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                        <div>
+                            <a class="flex items-center gap-3 mb-4" href="#">
+                                <img alt="lestoises logo" class="w-auto p-1"
+                                    src="https://saheel-ahmed.github.io/lestoises/assets/img/lestoises-logo-white.png"
+                                    srcset="" />
+                            </a>
+                            <p class="text-gray-300 text-sm">Your mental health matters. Reach out to our qualified
+                                professionals anytime, anywhere—use the button below or start a conversation via the
+                                chat window.</p>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold mb-4 text-white">Navigation</h4>
+                            <ul class="space-y-2">
+                                <li><a class="text-gray-300 hover:text-white text-sm" href="#">For whom</a></li>
+                                <li><a class="text-gray-300 hover:text-white text-sm" href="#">Our approach</a></li>
+                                <li><a class="text-gray-300 hover:text-white text-sm" href="#">Contact</a></li>
+                                <li><a class="text-gray-300 hover:text-white text-sm" href="#">Blog</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold mb-4 text-white">Legal</h4>
+                            <ul class="space-y-2">
+                                <li><a class="text-gray-300 hover:text-white text-sm" href="#">Terms of use</a></li>
+                                <li><a class="text-gray-300 hover:text-white text-sm" href="#">Privacy policy</a></li>
+                            </ul>
+
+                            <img src="https://saheel-ahmed.github.io/lestoises/assets/img/secure-ssl.png"
+                                alt="Secure SSL" class="mt-6 w-24" />
+                        </div>
+                        <div>
+                            <h4 class="font-semibold mb-4 text-white">Follow us</h4>
+                            <div class="flex items-center gap-4">
+                                <a class="text-gray-300 hover:text-white" href="#">
+                                    <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                        <path clip-rule="evenodd"
+                                            d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
+                                            fill-rule="evenodd"></path>
+                                    </svg>
+                                </a>
+                                <a class="text-gray-300 hover:text-white" href="#">
+                                    <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                        <path
+                                            d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.71v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84">
+                                        </path>
+                                    </svg>
+                                </a>
+                                <a class="text-gray-300 hover:text-white" href="#">
+                                    <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                        <path clip-rule="evenodd"
+                                            d="M12 2C6.477 2 2 6.477 2 12.001c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.031-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.03 1.595 1.03 2.688 0 3.848-2.338 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.001 10.001 0 0022 12.001C22 6.477 17.523 2 12 2z"
+                                            fill-rule="evenodd"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                            <div class="flex flex-col gap-2 mt-4">
+                                <button
+                                    class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-5 bg-brand-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-opacity-90">
+                                    <span class="truncate">Join as a patient</span>
+                                </button>
+                                <button
+                                    class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-5 bg-brand-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-opacity-90">
+                                    <span class="truncate">Join as a therapist</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="mt-8 border-t border-[#585858] pt-8 flex flex-col sm:flex-row justify-center items-center gap-4">
+                        <p class="text-sm text-gray-400 text-center">© 2025 lestoises. All rights reserved.</p>
+                    </div>
+                </div>
+                <img class="w-[50%] absolute top-0 left-1/2 -translate-x-1/2 z-0 opacity-20"
+                    src="https://saheel-ahmed.github.io/lestoises/assets/img/lestoises-app-256x256.png" />
+            </footer>
+        </div>
+    </div>
+</body>
+
+</html>
