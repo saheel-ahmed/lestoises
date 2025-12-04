@@ -102,10 +102,29 @@
     <div class="relative flex min-h-screen w-full flex-col group/design-root overflow-x-hidden">
         <div class="layout-container flex h-full grow flex-col">
             <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-sm border-b border-gray-200">
+                <!-- switch bar -->
+                <div class="bg-brand-primary">
+                    <div class="mx-auto max-w-7xl w-full px-4 sm:px-6 lg:px-8">
+                        <div class="flex justify-end items-center gap-3 py-2">
+                            <a href="#"
+                                class="flex items-center gap-2 text-sm text-white/90 px-3 py-1 rounded hover:bg-white/10 hover:text-white transition-colors duration-200">
+                                <span class="material-symbols-outlined text-[16px]">health_and_safety</span>
+                                <span>You are a therapist</span>
+                            </a>
+
+                            <!-- active link -->
+                            <a href="#" aria-current="page"
+                                class="flex items-center gap-2 text-sm text-white bg-white/10 px-3 py-1 rounded font-semibold shadow-inner transition-colors duration-200">
+                                <span class="material-symbols-outlined text-[16px]">person</span>
+                                <span>You are a patient</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
                 <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div class="flex items-center justify-between whitespace-nowrap py-4">
                         <div class="flex items-center gap-4">
-                            <a class="flex items-center gap-3" href="#">
+                            <a class="flex items-center gap-3" href="./index.html">
                                 <img alt="lestoises logo" class="h-10 w-auto"
                                     src="https://saheel-ahmed.github.io/lestoises/assets/img/lestoises-logo.png"
                                     srcset="" />
@@ -113,13 +132,15 @@
                         </div>
                         <nav class="hidden md:flex items-center gap-9 absolute left-1/2 -translate-x-1/2">
                             <a class="text-gray-600 hover:text-brand-primary text-sm font-medium leading-normal"
-                                href="#">For
-                                whom</a>
+                                href="#">About us</a>
                             <a class="text-gray-600 hover:text-brand-primary text-sm font-medium leading-normal"
-                                href="#">Our
-                                approach</a>
+                                href="#">Care & Services</a>
                             <a class="text-gray-600 hover:text-brand-primary text-sm font-medium leading-normal"
-                                href="#">Contact</a>
+                                href="#">Therapist directory</a>
+                            <a class="text-gray-600 hover:text-brand-primary text-sm font-medium leading-normal"
+                                href="#">Research & Blogs</a>
+                            <a class="text-gray-600 hover:text-brand-primary text-sm font-medium leading-normal"
+                                href="#">Contact us</a>
                         </nav>
                         <div class="flex items-center gap-2">
                             <button
