@@ -21,6 +21,8 @@
     .animate-slideInUp { animation: slideInUp 0.8s ease-out forwards; }
     .animate-slideInRight { animation: slideInRight 0.8s ease-out forwards; }
     .animate-zoomIn { animation: zoomIn 0.8s ease-out forwards; }
+    .will-animate { opacity: 0; will-change: opacity, transform; }
+    .will-animate[data-animation="zoomIn"] { transform: scale(0.98); }
 </style>
     <script>
         tailwind.config = {
@@ -165,7 +167,7 @@
                     </div>
 
                     <div class="h-[450px] grid grid-cols-2 md:grid-cols-4 gap-2 mb-10">
-                        <div class="relative col-span-2 row-span-2 rounded-xl overflow-hidden group cursor-pointer">
+                        <div class="relative col-span-2 row-span-2 rounded-xl overflow-hidden group cursor-pointer will-animate" data-animation="zoomIn" data-delay="0">
                             <video autoplay="" class="absolute top-0 left-0 w-full h-full object-cover" loop="" muted=""
                                 playsinline="">
                                 <source
@@ -173,18 +175,18 @@
                                     type="video/mp4" />
                             </video>
                         </div>
-                        <div class="relative col-span-1 row-span-1 rounded-xl overflow-hidden">
+                        <div class="relative col-span-1 row-span-1 rounded-xl overflow-hidden will-animate" data-animation="zoomIn" data-delay="80">
                             <div class="bg-center bg-no-repeat w-full h-full bg-cover"
                                 style='background-image: url("https://saheel-ahmed.github.io/lestoises/assets/img/a1.jpg");'>
                             </div>
                         </div>
-                        <div class="relative col-span-1 row-span-1 rounded-xl overflow-hidden">
+                        <div class="relative col-span-1 row-span-1 rounded-xl overflow-hidden will-animate" data-animation="zoomIn" data-delay="160">
                             <div class="bg-center bg-no-repeat w-full h-full bg-cover"
                                 style='background-image: url("https://saheel-ahmed.github.io/lestoises/assets/img/a1.2.jpg");'>
                             </div>
                         </div>
                         <div
-                            class="relative col-span-2 row-span-1 rounded-xl overflow-hidden flex items-center justify-center bg-primary/10 dark:bg-primary/20">
+                            class="relative col-span-2 row-span-1 rounded-xl overflow-hidden flex items-center justify-center bg-primary/10 dark:bg-primary/20 will-animate" data-animation="fadeIn" data-delay="240">
                             <button
                                 class="flex items-center gap-2 px-6 py-3 bg-white dark:bg-background-dark/80 rounded-lg shadow-md hover:shadow-lg transition-shadow">
                                 <span class="material-symbols-outlined text-primary">photo_library</span>
@@ -193,7 +195,7 @@
                         </div>
                     </div>
 
-                    <div class="mt-8 bg-white p-4 rounded-2xl flex items-end gap-6">
+                    <div class="mt-8 bg-white p-4 rounded-2xl flex items-end gap-6 will-animate" data-animation="fadeIn" data-delay="120">
                         <div class="flex-grow text-gray-800 dark:text-gray-200">
                             <h1 class="text-4xl font-light leading-tight tracking-tight text-brand-primary">
                                 Dr. Emily White</h1>
@@ -227,7 +229,7 @@
 
                     <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-10">
                         <div class="lg:col-span-2 space-y-8">
-                            <div class="bg-white p-6 rounded-xl shadow-sm">
+                            <div class="bg-white p-6 rounded-xl shadow-sm will-animate" data-animation="fadeIn" data-delay="180">
                                 <h3 class="text-xl font-bold text-[#111618] mb-3">About Dr. Emily White
                                 </h3>
                                 <p class="text-gray-600 leading-relaxed">
@@ -257,11 +259,11 @@
                                         class="bg-primary/20 text-primary text-sm font-semibold py-1 px-3 rounded-full">Mindfulness</span>
                                 </div>
                             </div>
-                            <div class="bg-white p-6 rounded-xl shadow-sm">
+                            <div class="bg-white p-6 rounded-xl shadow-sm will-animate" data-animation="fadeIn" data-delay="240">
                                 <h3 class="text-xl font-bold text-[#111618] mb-4">Patient Reviews (42)
                                 </h3>
                                 <div class="space-y-6">
-                                    <div class="flex gap-4">
+                                    <div class="flex gap-4 will-animate" data-animation="fadeIn" data-delay="300">
                                         <div
                                             class="w-12 h-12 rounded-full bg-gray-200 flex-shrink-0 flex items-center justify-center font-bold text-gray-500">
                                             JD</div>
@@ -286,7 +288,7 @@
                                                 improved my life. Highly recommended."</p>
                                         </div>
                                     </div>
-                                    <div class="flex gap-4">
+                                    <div class="flex gap-4 will-animate" data-animation="fadeIn" data-delay="340">
                                         <div
                                             class="w-12 h-12 rounded-full bg-gray-200 flex-shrink-0 flex items-center justify-center font-bold text-gray-500">
                                             AS</div>
@@ -317,7 +319,7 @@
                         </div>
                         <div class="lg:col-span-1">
                             <div class="sticky top-24 space-y-8">
-                                <div class="bg-white p-6 rounded-xl shadow-sm">
+                                <div class="bg-white p-6 rounded-xl shadow-sm will-animate" data-animation="fadeIn" data-delay="200">
                                     <h3 class="text-lg font-bold text-[#111618] mb-4">Book a Session
                                     </h3>
                                     <div class="border border-gray-200 rounded-lg">
@@ -350,7 +352,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="bg-white p-6 rounded-xl shadow-sm">
+                                <div class="bg-white p-6 rounded-xl shadow-sm will-animate" data-animation="fadeIn" data-delay="260">
                                     <h3 class="text-lg font-bold text-[#111618] mb-4">Certificates &amp;
                                         Licenses</h3>
                                     <ul class="space-y-3">
@@ -378,7 +380,7 @@
             <footer class="bg-[#4d4d4f] text-white relative overflow-hidden">
                 <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 relative z-10">
                     <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                        <div>
+                        <div class="will-animate" data-animation="fadeIn" data-delay="100">
                             <a class="flex items-center gap-3 mb-4" href="#">
                                 <img alt="lestoises logo" class="w-auto p-1"
                                     src="https://saheel-ahmed.github.io/lestoises/assets/img/lestoises-logo-white.png"
@@ -388,7 +390,7 @@
                                 professionals anytime, anywhere—use the button below or start a conversation via the
                                 chat window.</p>
                         </div>
-                        <div>
+                        <div class="will-animate" data-animation="fadeIn" data-delay="160">
                             <h4 class="font-semibold mb-4 text-white">Navigation</h4>
                             <ul class="space-y-2">
                                 <li><a class="text-gray-300 hover:text-white text-sm" href="#">For whom</a></li>
@@ -397,7 +399,7 @@
                                 <li><a class="text-gray-300 hover:text-white text-sm" href="#">Blog</a></li>
                             </ul>
                         </div>
-                        <div>
+                        <div class="will-animate" data-animation="fadeIn" data-delay="220">
                             <h4 class="font-semibold mb-4 text-white">Legal</h4>
                             <ul class="space-y-2">
                                 <li><a class="text-gray-300 hover:text-white text-sm" href="#">Terms of use</a></li>
@@ -407,7 +409,7 @@
                             <img src="https://saheel-ahmed.github.io/lestoises/assets/img/secure-ssl.png"
                                 alt="Secure SSL" class="mt-6 w-24" />
                         </div>
-                        <div>
+                        <div class="will-animate" data-animation="fadeIn" data-delay="280">
                             <h4 class="font-semibold mb-4 text-white">Follow us</h4>
                             <div class="flex items-center gap-4">
                                 <a class="text-gray-300 hover:text-white" href="#">
@@ -454,6 +456,32 @@
             </footer>
         </div>
     </div>
+                <script>
+                    document.addEventListener('DOMContentLoaded', function () {
+                        const items = document.querySelectorAll('.will-animate');
+                        if (!items.length) return;
+
+                        const io = new IntersectionObserver((entries, obs) => {
+                            entries.forEach(entry => {
+                                if (!entry.isIntersecting) return;
+                                const el = entry.target;
+                                const anim = el.dataset.animation || 'fadeIn';
+                                const delay = el.dataset.delay ? parseInt(el.dataset.delay, 10) : 0;
+                                if (delay) el.style.animationDelay = `${delay}ms`;
+
+                                if (anim === 'zoomIn') el.classList.add('animate-zoomIn');
+                                else if (anim === 'slideInUp') el.classList.add('animate-slideInUp');
+                                else if (anim === 'slideInRight') el.classList.add('animate-slideInRight');
+                                else el.classList.add('animate-fadeIn');
+
+                                el.classList.remove('will-animate');
+                                obs.unobserve(el);
+                            });
+                        }, { threshold: 0.12 });
+
+                        items.forEach(el => io.observe(el));
+                    });
+                </script>
 </body>
 
 </html>
