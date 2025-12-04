@@ -80,40 +80,6 @@
             background-attachment: fixed
         }
     </style>
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const counters = document.querySelectorAll('.counter');
-            const speed = 200; // The lower the slower
-            const animate = (counter) => {
-                const target = +counter.getAttribute('data-count');
-                let count = 0;
-                const updateCount = () => {
-                    const inc = Math.ceil(target / speed);
-                    count += inc;
-                    if (count < target) {
-                        counter.innerText = count.toLocaleString('en-US');
-                        setTimeout(updateCount, 15);
-                    } else {
-                        counter.innerText = target.toLocaleString('en-US');
-                    }
-                };
-                updateCount();
-            };
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        animate(entry.target);
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, {
-                threshold: 0.5
-            });
-            counters.forEach(counter => {
-                observer.observe(counter);
-            });
-        });
-    </script>
     <style type="text/tailwindcss">
         .gemini-gradient {
       background: linear-gradient(90deg, #4285F4, #9B72CB, #D96570, #F2A60C);
@@ -129,6 +95,7 @@
       filter: drop-shadow(0 20px 13px rgb(0 0 0 / 0.1)) drop-shadow(0 8px 5px rgb(0 0 0 / 0.08));
     }
   </style>
+  <base href="https://saheel-ahmed.github.io/lestoises/" />
 </head>
 
 <body class="font-display bg-background-light text-gray-800">
