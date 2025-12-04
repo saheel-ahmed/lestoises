@@ -68,9 +68,17 @@
     <style>
         /* 1. KEYFRAMES: Defines the continuous diagonal movement of the background gradient */
         @keyframes gradient-shift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
         }
 
         /* 2. BASE STYLES: Essential setup for the animation and default state */
@@ -78,18 +86,21 @@
             /* REQUIRED for the shifting effect: makes the background 3x the size of the button */
             background-size: 300% 300%;
             /* Use transform property for GPU acceleration (already done with scale) */
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Using Tailwind's default ease */
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            /* Using Tailwind's default ease */
             color: white;
             /* Initial shadow for a base glow effect */
-            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4); 
+            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4);
         }
 
         /* 3. HOVER STYLES: Activates the animation and lift effect */
         .animated-gradient-button:hover {
-            animation: gradient-shift 4s ease infinite; /* Activate continuous gradient shift */
-            transform: scale(1.06); /* Increased lift */
+            animation: gradient-shift 4s ease infinite;
+            /* Activate continuous gradient shift */
+            transform: scale(1.06);
+            /* Increased lift */
             /* Enhanced shadow/glow on hover for dramatic effect */
-            box-shadow: 0 12px 30px rgba(139, 92, 246, 0.7), 0 0 60px rgba(236, 72, 153, 0.6); 
+            box-shadow: 0 12px 30px rgba(139, 92, 246, 0.7), 0 0 60px rgba(236, 72, 153, 0.6);
         }
     </style>
     <script>
@@ -197,7 +208,8 @@
                                     <div class="text-5xl">in complete privacy,</div>
                                     <div class="text-7xl font-semibold">anytime, anywhere.</div>
                                 </div>
-                                <button class="animated-gradient-button py-3 px-6 font-semibold rounded-full bg-gradient-to-br from-ai-start via-ai-middle to-ai-end focus:outline-none  focus:ring-4 focus:ring-ai-start/70">
+                                <button
+                                    class="animated-gradient-button py-3 px-6 font-semibold rounded-full bg-gradient-to-br from-ai-start via-ai-middle to-ai-end focus:outline-none  focus:ring-4 focus:ring-ai-start/70">
                                     Book an appointment
                                 </button>
                             </div>
@@ -215,59 +227,75 @@
                         src="https://saheel-ahmed.github.io/lestoises/assets/img/abstract-background.png" />
                 </section>
                 <section class="w-full py-16 relative">
-                    <div
-                        class="shadow-lg rounded-xl p-6 md:p-8 flex flex-col md:flex-row items-start md:items-center justify-between max-w-4xl mx-auto">
+                    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div class="relative group">
+                            <!-- Gradient Border Background -->
+                            <div
+                                class="absolute -inset-1 bg-gradient-to-r from-ai-start via-ai-middle to-ai-end rounded-xl blur opacity-75 group-hover:opacity-100 transition duration-300 animate-pulse">
+                            </div>
 
-                        <div class="flex-grow">
-                            <h2 class="text-xl md:text-2xl font-bold text-brand-primary mb-4 md:mb-6">
-                                Immediate Support: <span class="font-light">Talk to a Verified Therapist Now</span>
-                            </h2>
+                            <!-- Card Content -->
+                            <div
+                                class="relative shadow-lg rounded-xl p-6 md:p-8 flex flex-col md:flex-row items-start md:items-center justify-between bg-white shadow-xl hover:shadow-2xl transition-all duration-300">
 
-                            <div class="flex items-center space-x-4">
-                                <div class="flex -space-x-4">
-                                    <img class="inline-block h-12 w-12 rounded-full ring-2 ring-white object-cover"
-                                        src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=100&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                                        alt="Therapist 1">
-                                    <img class="inline-block h-12 w-12 rounded-full ring-2 ring-white object-cover"
-                                        src="https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?q=80&w=100&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                                        alt="Therapist 2">
-                                    <img class="inline-block h-12 w-12 rounded-full ring-2 ring-white object-cover"
-                                        src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=100&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                                        alt="Therapist 3">
-                                    <img class="inline-block h-12 w-12 rounded-full ring-2 ring-white object-cover"
-                                        src="https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?q=80&w=100&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                                        alt="Therapist 4">
+                                <div class="flex-grow">
+                                    <h2 class="text-xl md:text-2xl font-bold text-brand-primary mb-4 md:mb-6">
+                                        Immediate Support: <span class="font-light">Talk to a Verified Therapist
+                                            Now</span>
+                                    </h2>
 
-                                    <div
-                                        class="flex items-center justify-center h-12 w-12 rounded-full ring-2 ring-blue-500 text-blue-500 font-semibold bg-white ml-4">
-                                        5
+                                    <div class="flex items-center space-x-4">
+                                        <div class="flex -space-x-4">
+                                            <img class="inline-block h-12 w-12 rounded-full ring-2 ring-white object-cover animate-fadeIn"
+                                                src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=100&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                                alt="Therapist 1" style="animation-delay: 0.1s;">
+                                            <img class="inline-block h-12 w-12 rounded-full ring-2 ring-white object-cover animate-fadeIn"
+                                                src="https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?q=80&w=100&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                                alt="Therapist 2" style="animation-delay: 0.2s;">
+                                            <img class="inline-block h-12 w-12 rounded-full ring-2 ring-white object-cover animate-fadeIn"
+                                                src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=100&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                                alt="Therapist 3" style="animation-delay: 0.3s;">
+                                            <img class="inline-block h-12 w-12 rounded-full ring-2 ring-white object-cover animate-fadeIn"
+                                                src="https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?q=80&w=100&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                                alt="Therapist 4" style="animation-delay: 0.4s;">
+
+                                            <div
+                                                class="flex items-center justify-center h-12 w-12 rounded-full ring-2 ring-[#F3F6F4] text-brand-primary font-semibold bg-white ml-4 animate-slideInUp">
+                                                5
+                                            </div>
+                                        </div>
+
+                                        <div class="flex items-center mt-2 md:mt-0 ml-6 animate-slideInRight"
+                                            style="animation-delay: 0.3s;">
+                                            <span class="h-2 w-2 bg-green-500 rounded-full mr-2 animate-pulse"></span>
+                                            <p class="text-sm text-gray-600">
+                                                12 trusted experts are standing by. Start your session in under 5
+                                                minutes.
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
 
-                                <div class="flex items-center mt-2 md:mt-0 ml-6">
-                                    <span class="h-2 w-2 bg-green-500 rounded-full mr-2"></span>
-                                    <p class="text-sm text-gray-600">
-                                        12 trusted experts are standing by. Start your session in under 5 minutes.
-                                    </p>
+                                <div class="mt-6 md:mt-0 md:ml-8">
+                                    <button
+                                        class="px-6 py-2 border-2 bg-brand-primary text-white font-medium rounded-full hover:bg-brand-primary hover:text-white transition-all duration-300 transform hover:scale-105 active:scale-95 flex items-center gap-2">
+                                        <span class="material-symbols-outlined text-[18px]">mic</span>
+                                        <span>Start Now</span>
+                                    </button>
                                 </div>
+
                             </div>
                         </div>
-
-                        <div class="mt-6 md:mt-0 md:ml-8">
-                            <button
-                                class="px-6 py-2 border border-blue-500 text-blue-500 font-medium rounded-lg hover:bg-blue-50 transition duration-150">
-                                Start Now
-                            </button>
-                        </div>
-
                     </div>
                 </section>
                 <section class="w-full py-16 lg:py-24 bg-white relative">
                     <div class="absolute inset-0 parallax-bg opacity-20"></div>
                     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
                         <div class="text-center max-w-3xl mx-auto mb-16">
-                            <h2 class="text-brand-primary text-3xl lg:text-4xl font-bold leading-tight">Support tailored
-                                to your needs</h2>
+                            <div class="text-brand-primary text-5xl font-light leading-tight">
+                                <div>Support tailored to</div>
+                                <div>your needs</div>
+                            </div>
                             <p class="text-gray-600 mt-4 text-lg">Whether you want to consult online, in an office,
                                 alone, or with others, we have a solution for you.</p>
                         </div>
@@ -361,29 +389,30 @@
                 <section class="w-full py-16 relative">
                     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-                        <h2 class="text-brand-primary text-5xl font-light text-center mb-10">
-                            Trusted by Industry Leaders Worldwide
-                        </h2>
+                        <div class="text-brand-primary text-5xl font-light text-center mb-10">
+                            <div>Trusted by</div>
+                            <div>Industry Leaders Worldwide</div>
+                        </div>
 
                         <div class="flex flex-wrap justify-center items-center gap-x-8 gap-y-8 md:gap-x-12 md:gap-y-10">
 
-                            <img class="h-10 md:h-12 w-auto opacity-75 hover:opacity-100 transition duration-300"
+                            <img class="h-10 md:h-12 w-auto opacity-25 hover:opacity-100 hover:scale-110 transition duration-300 cursor-pointer"
                                 src="https://saheel-ahmed.github.io/lestoises/assets/img/logo-1.png"
                                 alt="Abstract Tech Logo">
 
-                            <img class="h-10 md:h-12 w-auto opacity-75 hover:opacity-100 transition duration-300"
+                            <img class="h-10 md:h-12 w-auto opacity-25 hover:opacity-100 hover:scale-110 transition duration-300 cursor-pointer"
                                 src="https://saheel-ahmed.github.io/lestoises/assets/img/logo-2.png"
                                 alt="Geometric Design Logo">
 
-                            <img class="h-10 md:h-12 w-auto opacity-75 hover:opacity-100 transition duration-300"
+                            <img class="h-10 md:h-12 w-auto opacity-25 hover:opacity-100 hover:scale-110 transition duration-300 cursor-pointer"
                                 src="https://saheel-ahmed.github.io/lestoises/assets/img/logo-3.png"
                                 alt="Modern Lettermark Logo">
 
-                            <img class="h-10 md:h-12 w-auto opacity-75 hover:opacity-100 transition duration-300"
+                            <img class="h-10 md:h-12 w-auto opacity-25 hover:opacity-100 hover:scale-110 transition duration-300 cursor-pointer"
                                 src="https://saheel-ahmed.github.io/lestoises/assets/img/logo-4.png"
                                 alt="Flowing Water Logo">
 
-                            <img class="h-10 md:h-12 w-auto opacity-75 hover:opacity-100 transition duration-300"
+                            <img class="h-10 md:h-12 w-auto opacity-25 hover:opacity-100 hover:scale-110 transition duration-300 cursor-pointer"
                                 src="https://saheel-ahmed.github.io/lestoises/assets/img/logo-5.png"
                                 alt="Global Services Logo">
 
@@ -391,11 +420,18 @@
 
                     </div>
                 </section>
+                <section class="w-full py-8">
+                    <div class="flex justify-center items-center w-full">
+                        <img class="h-40 opacity-50" src="https://saheel-ahmed.github.io/lestoises/assets/img/lestoises-app-256x256.png" />
+                    </div>
+                </section>
                 <section class="w-full py-16 lg:py-24 bg-white">
                     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                         <div class="text-center max-w-3xl mx-auto mb-12">
-                            <h2 class="text-brand-primary text-5xl font-light">Dive into the
-                                heart of psychology</h2>
+                            <div class="text-brand-primary text-5xl font-light">
+                                <div>Dive into</div>
+                                <div>the heart of psychology</div>
+                            </div>
                             <p class="text-gray-600 mt-4 text-lg">Discover our articles and advice to better understand
                                 your mental health and take care of it daily.</p>
                         </div>
@@ -476,7 +512,7 @@
                             <div class="order-1 md:order-2">
                                 <h2 class="text-4xl font-light text-brand-primary mb-6">
                                     Unlock Instant Wellness:
-                                    <span class="block font-extrabold">Your App is Ready</span>
+                                    <span class="block font-medium text-5xl">Your App is Ready</span>
                                 </h2>
 
                                 <p class="text-xl text-brand-primary mb-4">
@@ -510,8 +546,10 @@
                 <section class="w-full py-16 lg:py-24 bg-brand-secondary">
                     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                         <div class="text-center max-w-3xl mx-auto mb-12">
-                            <h2 class="text-brand-primary text-5xl font-light">Kind words from
-                                our users</h2>
+                            <div class="text-brand-primary text-5xl font-light">
+                                <div>Kind words</div> 
+                                <div>from our users</div>
+                            </div>
                         </div>
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                             <div class="bg-white rounded-2xl p-6 flex flex-col gap-4 shadow-md">
