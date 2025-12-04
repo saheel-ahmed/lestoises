@@ -13,15 +13,15 @@
         rel="stylesheet" />
     <style type="text/tailwindcss">
         @import url('https://fonts.googleapis.com/css2?family=Roobert:wght@400;500;700;800&display=swap');
-    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-    @keyframes slideInUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-    @keyframes slideInRight { from { transform: translateX(-20px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
-    @keyframes zoomIn { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
-    .animate-fadeIn { animation: fadeIn 1s ease-out forwards; }
-    .animate-slideInUp { animation: slideInUp 0.8s ease-out forwards; }
-    .animate-slideInRight { animation: slideInRight 0.8s ease-out forwards; }
-    .animate-zoomIn { animation: zoomIn 0.8s ease-out forwards; }
-</style>
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideInUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        @keyframes slideInRight { from { transform: translateX(-20px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+        @keyframes zoomIn { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+        .animate-fadeIn { animation: fadeIn 1s ease-out forwards; }
+        .animate-slideInUp { animation: slideInUp 0.8s ease-out forwards; }
+        .animate-slideInRight { animation: slideInRight 0.8s ease-out forwards; }
+        .animate-zoomIn { animation: zoomIn 0.8s ease-out forwards; }
+    </style>
     <script>
         tailwind.config = {
             darkMode: "class",
@@ -34,9 +34,13 @@
                         "background-dark": "#101921",
                         "brand-primary": "#9C804E",
                         "brand-secondary": "#FAF8F3",
+                        // Futuristic/AI-themed colors (Violet, Pink, Cyan)
+                        'ai-start': '#8B5CF6', // Violet-500
+                        'ai-middle': '#EC4899', // Pink-500
+                        'ai-end': '#06B6D4', // Cyan-500
                     },
                     fontFamily: {
-                        "display": ["Roobert", "sans-serif"]
+                        "display": ["Montserrat", "sans-serif"]
                     },
                     borderRadius: {
                         "DEFAULT": "0.25rem",
