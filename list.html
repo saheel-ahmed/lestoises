@@ -129,16 +129,36 @@
       filter: drop-shadow(0 20px 13px rgb(0 0 0 / 0.1)) drop-shadow(0 8px 5px rgb(0 0 0 / 0.08));
     }
   </style>
+    <base href="https://saheel-ahmed.github.io/lestoises/" />
 </head>
 
 <body class="font-display bg-background-light text-gray-800">
     <div class="relative flex min-h-screen w-full flex-col group/design-root overflow-x-hidden">
         <div class="layout-container flex h-full grow flex-col">
             <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-sm border-b border-gray-200">
+                <!-- switch bar -->
+                <div class="bg-brand-primary">
+                    <div class="mx-auto max-w-7xl w-full px-4 sm:px-6 lg:px-8">
+                        <div class="flex justify-end items-center gap-3 py-2">
+                            <a href="#"
+                                class="flex items-center gap-2 text-sm text-white/90 px-3 py-1 rounded hover:bg-white/10 hover:text-white transition-colors duration-200">
+                                <span class="material-symbols-outlined text-[16px]">health_and_safety</span>
+                                <span>You are a therapist</span>
+                            </a>
+
+                            <!-- active link -->
+                            <a href="#" aria-current="page"
+                                class="flex items-center gap-2 text-sm text-white bg-white/10 px-3 py-1 rounded font-semibold shadow-inner transition-colors duration-200">
+                                <span class="material-symbols-outlined text-[16px]">person</span>
+                                <span>You are a patient</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
                 <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div class="flex items-center justify-between whitespace-nowrap py-4">
                         <div class="flex items-center gap-4">
-                            <a class="flex items-center gap-3" href="#">
+                            <a class="flex items-center gap-3" href="./index.html">
                                 <img alt="lestoises logo" class="h-10 w-auto"
                                     src="https://saheel-ahmed.github.io/lestoises/assets/img/lestoises-logo.png"
                                     srcset="" />
@@ -146,13 +166,15 @@
                         </div>
                         <nav class="hidden md:flex items-center gap-9 absolute left-1/2 -translate-x-1/2">
                             <a class="text-gray-600 hover:text-brand-primary text-sm font-medium leading-normal"
-                                href="#">For
-                                whom</a>
+                                href="#">About us</a>
                             <a class="text-gray-600 hover:text-brand-primary text-sm font-medium leading-normal"
-                                href="#">Our
-                                approach</a>
+                                href="#">Care & Services</a>
                             <a class="text-gray-600 hover:text-brand-primary text-sm font-medium leading-normal"
-                                href="#">Contact</a>
+                                href="#">Therapist directory</a>
+                            <a class="text-gray-600 hover:text-brand-primary text-sm font-medium leading-normal"
+                                href="#">Research & Blogs</a>
+                            <a class="text-gray-600 hover:text-brand-primary text-sm font-medium leading-normal"
+                                href="#">Contact us</a>
                         </nav>
                         <div class="flex items-center gap-2">
                             <button
@@ -164,13 +186,11 @@
                 </div>
             </header>
             <main class="flex-1">
-                <div
-                    class="container mx-auto flex h-full flex-col items-center justify-center px-4 py-12">
+                <div class="container mx-auto flex h-full flex-col items-center justify-center px-4 py-12">
                     <div class="w-full max-w-4xl space-y-8">
-                        
+
                         <div class="text-center">
-                            <p
-                                class="text-brand-primary text-5xl font-light">
+                            <p class="text-brand-primary text-5xl font-light">
                                 Your AI-Curated Therapist Matches</p>
                             <p
                                 class="text-gray-500 dark:text-gray-400 text-base font-normal leading-normal mt-2 max-w-2xl mx-auto">
@@ -189,7 +209,7 @@
                                 <div class="relative">
                                     <div class="bg-center bg-no-repeat aspect-[4/3] bg-cover"
                                         data-alt="Profile picture of Dr. Jane Doe"
-                                        style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCKeMC_oicS6k-UFlPDSBbm9OOF5RG4KroJ_kiTF78DZjYpTJ71hIM23_tc1V5Y_-vBITHuf3T7ssxcPJssSzfezJsUMcoA7U5gbeyWqMsiu-7pfOIkybvHGDRuRQIt8pW--NAu2A7C13YuaxAy23tzWM7Ia3kQuPxPKzrkrC4FGC50i8hL__LNwX0yNTDb7rvUnwJCo0XgzURvejr-geoWW5N1ZQ7Rpy-5L9fVVVqPVijHwj8VIWT76a1_CQsciQ09TH-1L3D1jns");'>
+                                        style='background-image: url("https://saheel-ahmed.github.io/lestoises/assets/img/a1.jpg");'>
                                     </div>
                                     <div
                                         class="absolute top-4 right-4 z-20 flex items-center gap-1.5 rounded-full bg-black/40 backdrop-blur-sm px-3 py-1.5 border border-white/20">
@@ -202,7 +222,7 @@
                                     <div class="absolute -top-12 left-1/2 -translate-x-1/2">
                                         <div class="relative">
                                             <div class="bg-cover bg-center rounded-full size-24 border-4 border-white dark:border-brand-charcoal"
-                                                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCKeMC_oicS6k-UFlPDSBbm9OOF5RG4KroJ_kiTF78DZjYpTJ71hIM23_tc1V5Y_-vBITHuf3T7ssxcPJssSzfezJsUMcoA7U5gbeyWqMsiu-7pfOIkybvHGDRuRQIt8pW--NAu2A7C13YuaxAy23tzWM7Ia3kQuPxPKzrkrC4FGC50i8hL__LNwX0yNTDb7rvUnwJCo0XgzURvejr-geoWW5N1ZQ7Rpy-5L9fVVVqPVijHwj8VIWT76a1_CQsciQ09TH-1L3D1jns");'>
+                                                style='background-image: url("https://saheel-ahmed.github.io/lestoises/assets/img/a1.jpg");'>
                                             </div>
                                             <div
                                                 class="absolute -bottom-2 -right-2 flex items-center justify-center size-9 bg-primary text-white rounded-full border-4 border-white dark:border-brand-charcoal">
@@ -211,7 +231,7 @@
                                         </div>
                                     </div>
                                     <div class="pt-12 text-center flex flex-col flex-grow">
-                                        <h4 class="text-brand-charcoal dark:text-white font-bold text-xl">Dr. Jane Doe,
+                                        <h4 class="text-brand-charcoal font-bold text-xl">Dr. Jane Doe,
                                             LCSW</h4>
                                         <p class="text-primary dark:text-primary/80 text-sm font-medium">Clinical Social
                                             Worker</p>
@@ -328,7 +348,7 @@
                                         <p class="text-sm mt-4 mb-5 flex-grow">Adept at
                                             helping couples and families improve communication and resolve conflicts in
                                             a healthy way.</p>
-                                        
+
                                         <div class="mb-6 flex flex-wrap gap-2 justify-center">
                                             <span
                                                 class="text-xs font-semibold bg-blue-100 text-blue-800 py-1 px-3 rounded-full">Couples</span>
