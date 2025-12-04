@@ -84,40 +84,7 @@
             background-attachment: fixed
         }
     </style>
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const counters = document.querySelectorAll('.counter');
-            const speed = 200; // The lower the slower
-            const animate = (counter) => {
-                const target = +counter.getAttribute('data-count');
-                let count = 0;
-                const updateCount = () => {
-                    const inc = Math.ceil(target / speed);
-                    count += inc;
-                    if (count < target) {
-                        counter.innerText = count.toLocaleString('en-US');
-                        setTimeout(updateCount, 15);
-                    } else {
-                        counter.innerText = target.toLocaleString('en-US');
-                    }
-                };
-                updateCount();
-            };
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        animate(entry.target);
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, {
-                threshold: 0.5
-            });
-            counters.forEach(counter => {
-                observer.observe(counter);
-            });
-        });
-    </script>
+
     <style type="text/tailwindcss">
         .gemini-gradient {
       background: linear-gradient(90deg, #4285F4, #9B72CB, #D96570, #F2A60C);
@@ -133,16 +100,64 @@
       filter: drop-shadow(0 20px 13px rgb(0 0 0 / 0.1)) drop-shadow(0 8px 5px rgb(0 0 0 / 0.08));
     }
   </style>
+    <style>
+        /* Custom styles for step transition animation */
+        .step-container {
+            display: none;
+            /* Hide all steps by default */
+            /* Tailwind classes for transition */
+            @apply transition-opacity duration-500 ease-in-out;
+        }
+
+        .step-container.active {
+            display: block;
+            /* Show the active step */
+            opacity: 1;
+        }
+
+        .step-container.leaving {
+            opacity: 0;
+            position: absolute;
+            /* Keep it positioned so the next one doesn't jump */
+            width: 100%;
+            top: 0;
+        }
+
+        /* Custom style for the selected buttons (Psychiatrist/Gender) */
+        .select-btn-group>label.selected {
+            @apply border-blue-500 bg-blue-50 shadow-lg;
+        }
+    </style>
+    <base href="https://saheel-ahmed.github.io/lestoises/" />
 </head>
 
 <body class="font-display bg-background-light text-gray-800">
     <div class="relative flex min-h-screen w-full flex-col group/design-root overflow-x-hidden">
         <div class="layout-container flex h-full grow flex-col">
             <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-sm border-b border-gray-200">
+                <!-- switch bar -->
+                <div class="bg-brand-primary">
+                    <div class="mx-auto max-w-7xl w-full px-4 sm:px-6 lg:px-8">
+                        <div class="flex justify-end items-center gap-3 py-2">
+                            <a href="#"
+                                class="flex items-center gap-2 text-sm text-white/90 px-3 py-1 rounded hover:bg-white/10 hover:text-white transition-colors duration-200">
+                                <span class="material-symbols-outlined text-[16px]">health_and_safety</span>
+                                <span>You are a therapist</span>
+                            </a>
+
+                            <!-- active link -->
+                            <a href="#" aria-current="page"
+                                class="flex items-center gap-2 text-sm text-white bg-white/10 px-3 py-1 rounded font-semibold shadow-inner transition-colors duration-200">
+                                <span class="material-symbols-outlined text-[16px]">person</span>
+                                <span>You are a patient</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
                 <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div class="flex items-center justify-between whitespace-nowrap py-4">
                         <div class="flex items-center gap-4">
-                            <a class="flex items-center gap-3" href="#">
+                            <a class="flex items-center gap-3" href="./index.html">
                                 <img alt="lestoises logo" class="h-10 w-auto"
                                     src="https://saheel-ahmed.github.io/lestoises/assets/img/lestoises-logo.png"
                                     srcset="" />
@@ -150,13 +165,15 @@
                         </div>
                         <nav class="hidden md:flex items-center gap-9 absolute left-1/2 -translate-x-1/2">
                             <a class="text-gray-600 hover:text-brand-primary text-sm font-medium leading-normal"
-                                href="#">For
-                                whom</a>
+                                href="#">About us</a>
                             <a class="text-gray-600 hover:text-brand-primary text-sm font-medium leading-normal"
-                                href="#">Our
-                                approach</a>
+                                href="#">Care & Services</a>
                             <a class="text-gray-600 hover:text-brand-primary text-sm font-medium leading-normal"
-                                href="#">Contact</a>
+                                href="#">Therapist directory</a>
+                            <a class="text-gray-600 hover:text-brand-primary text-sm font-medium leading-normal"
+                                href="#">Research & Blogs</a>
+                            <a class="text-gray-600 hover:text-brand-primary text-sm font-medium leading-normal"
+                                href="#">Contact us</a>
                         </nav>
                         <div class="flex items-center gap-2">
                             <button
@@ -178,47 +195,409 @@
                                 </div>
                                 <img alt="Robotic AI Assistant"
                                     class="relative w-full h-full object-contain animate-float rounded-full robot-shadow"
-                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3yP_X_fICgae5dln52bUfkNJ1UOuT4YisISzc_Uv6r6izyBODGVELBsKbSGiwAQ_-o5EHuHJyx1aMQ_tu1Ts2t8VZA46E1aCbwVFNjQDdpXhTJ-t-IBRn0mYhoysgN6q4NV57GbhSBUUJqxlp_XEjLBvBRIhTZo-TJyAQoOI2xaI66f8o4-q7yFz2M9aUu8DquM8nyl4kiiI4fbjXO7cBf78eBv-IWDdjDbGZVbGsMWUiTVPOx6ElB1t7Wa5tuNPVqFwNbMsY73k" />
+                                    src="https://saheel-ahmed.github.io/lestoises/assets/img/robo.png" />
                             </div>
                             <h1 class="text-brand-primary text-5xl font-light">Let's find the best support for
                                 you</h1>
                             <p class="mt-4 max-w-xl text-muted-foreground-light dark:text-muted-foreground-dark">Answer
-                                a few questions to help our <span class="gemini-gradient font-semibold">AI
-                                    assistant</span> understand your needs and match you with the right specialist.</p>
+                                a few questions to help your <span class="gemini-gradient font-semibold">Tamara</span>
+                                understand your needs and match you with the right specialist.</p>
                         </div>
-                        <div class="bg-card-light dark:bg-card-dark rounded-xl border border-border-light dark:border-border-dark shadow-sm animate-fadeIn opacity-0"
-                            style="animation-delay: 200ms;">
-                            <div class="p-6 sm:p-8">
-                                <div class="flex items-start gap-4">
-                                    <div
-                                        class="w-8 h-8 rounded-full flex-shrink-0 flex items-center justify-center bg-muted-light dark:bg-muted-dark text-foreground-light dark:text-foreground-dark">
-                                        <span class="material-symbols-outlined text-lg">psychology</span>
+
+                        <div id="wizard-form" class="bg-white rounded-xl shadow-2xl p-8 max-w-4xl w-full">
+
+                            <div class="mb-8">
+                                <div class="h-2 bg-gray-200 rounded-full">
+                                    <div id="progress-bar"
+                                        class="h-2 bg-blue-600 rounded-full transition-all duration-500 ease-in-out"
+                                        style="width: 0%;"></div>
+                                </div>
+                            </div>
+
+                            <div id="steps-container" class="relative overflow-hidden min-h-[500px]">
+                                <div data-step="1" class="step-container active">
+                                    <h2 class="text-2xl font-semibold text-gray-800 text-center mb-6">Why are you coming
+                                        here today?</h2>
+                                    <div class="grid grid-cols-2 gap-4">
+                                        <label
+                                            class="flex items-center p-4 border rounded-lg cursor-pointer hover:bg-gray-50 transition duration-150">
+                                            <input type="checkbox" name="reason" value="Depression" class="hidden peer">
+                                            <div class="flex items-center w-full">
+                                                <span
+                                                    class="p-2 mr-3 text-purple-600 bg-purple-100 rounded-full">🌧️</span>
+                                                <span class="text-sm font-medium text-gray-700">Depression / Sadness /
+                                                    Low mood</span>
+                                            </div>
+                                        </label>
+                                        <label
+                                            class="flex items-center p-4 border rounded-lg cursor-pointer hover:bg-gray-50 transition duration-150">
+                                            <input type="checkbox" name="reason" value="Anxiety" class="hidden peer">
+                                            <div class="flex items-center w-full">
+                                                <span class="p-2 mr-3 text-blue-600 bg-blue-100 rounded-full">🌃</span>
+                                                <span class="text-sm font-medium text-gray-700">Anxiety / Social anxiety
+                                                    / Panic / OCD tendencies</span>
+                                            </div>
+                                        </label>
+                                        <label
+                                            class="flex items-center p-4 border rounded-lg cursor-pointer hover:bg-gray-50 transition duration-150">
+                                            <input type="checkbox" name="reason" value="Substance Use"
+                                                class="hidden peer">
+                                            <div class="flex items-center w-full">
+                                                <span class="p-2 mr-3 text-red-600 bg-red-100 rounded-full">🧴</span>
+                                                <span class="text-sm font-medium text-gray-700">Substance use /
+                                                    Addiction</span>
+                                            </div>
+                                        </label>
+                                        <label
+                                            class="flex items-center p-4 border rounded-lg cursor-pointer hover:bg-gray-50 transition duration-150">
+                                            <input type="checkbox" name="reason" value="Sleep Problems"
+                                                class="hidden peer">
+                                            <div class="flex items-center w-full">
+                                                <span
+                                                    class="p-2 mr-3 text-green-600 bg-green-100 rounded-full">🌙</span>
+                                                <span class="text-sm font-medium text-gray-700">Sleep problems</span>
+                                            </div>
+                                        </label>
+                                        <label
+                                            class="flex items-center p-4 border rounded-lg cursor-pointer hover:bg-gray-50 transition duration-150">
+                                            <input type="checkbox" name="reason" value="Anger Issues"
+                                                class="hidden peer">
+                                            <div class="flex items-center w-full">
+                                                <span
+                                                    class="p-2 mr-3 text-orange-600 bg-orange-100 rounded-full">🔥</span>
+                                                <span class="text-sm font-medium text-gray-700">Anger issues</span>
+                                            </div>
+                                        </label>
+                                        <label
+                                            class="flex items-center p-4 border rounded-lg cursor-pointer hover:bg-gray-50 transition duration-150">
+                                            <input type="checkbox" name="reason" value="Trauma" class="hidden peer">
+                                            <div class="flex items-center w-full">
+                                                <span class="p-2 mr-3 text-teal-600 bg-teal-100 rounded-full">🛡️</span>
+                                                <span class="text-sm font-medium text-gray-700">Trauma / PTSD</span>
+                                            </div>
+                                        </label>
+                                        <label
+                                            class="flex items-center p-4 border rounded-lg cursor-pointer hover:bg-gray-50 transition duration-150">
+                                            <input type="checkbox" name="reason" value="Self-discovery"
+                                                class="hidden peer">
+                                            <div class="flex items-center w-full">
+                                                <span class="p-2 mr-3 text-cyan-600 bg-cyan-100 rounded-full">🔎</span>
+                                                <span class="text-sm font-medium text-gray-700">Self-discovery</span>
+                                            </div>
+                                        </label>
+                                        <label
+                                            class="flex items-center p-4 border rounded-lg cursor-pointer hover:bg-gray-50 transition duration-150">
+                                            <input type="checkbox" name="reason" value="Eating Disorders"
+                                                class="hidden peer">
+                                            <div class="flex items-center w-full">
+                                                <span class="p-2 mr-3 text-pink-600 bg-pink-100 rounded-full">🍽️</span>
+                                                <span class="text-sm font-medium text-gray-700">Eating problems / Eating
+                                                    disorders</span>
+                                            </div>
+                                        </label>
                                     </div>
-                                    <div class="w-full">
-                                        <h2 class="text-lg text-brand-primary tracking-tight mb-4 sm:text-xl">
-                                            In a few words, what's on your mind today?</h2>
-                                        <div class="relative">
-                                            <textarea
-                                                class="form-textarea w-full resize-none rounded-lg border border-border-light  p-4 pr-12 text-base text-foreground-light placeholder:text-muted-foreground-light focus:border-primary  focus:outline-none focus:ring-2 focus:ring-primary/50 transition-colors"
-                                                placeholder="e.g., I've been feeling anxious about work lately..."
-                                                rows="4"></textarea>
-                                            <button
-                                                class="absolute bottom-3 right-3 flex h-8 w-8 items-center justify-center rounded-full bg-primary text-white shadow-sm transition-colors hover:bg-primary/90 disabled:cursor-not-allowed disabled:opacity-50">
-                                                <span class="material-symbols-outlined text-xl">arrow_forward</span>
-                                            </button>
+                                </div>
+
+                                <div data-step="2" class="step-container">
+                                    <h2 class="text-2xl font-semibold text-gray-800 text-center mb-6">Do you prefer a
+                                        psychiatrist or psychologist?</h2>
+                                    <div class="grid grid-cols-3 gap-6 select-btn-group">
+                                        <label for="prof_psychiatrist"
+                                            class="col-span-1 p-6 border rounded-xl cursor-pointer transition duration-300">
+                                            <input type="radio" id="prof_psychiatrist" name="professional"
+                                                value="Psychiatrist" class="hidden" onclick="selectBtn(this)">
+                                            <div class="flex flex-col items-center justify-center">
+                                                <span class="text-4xl">👨‍⚕️</span>
+                                                <p class="mt-2 text-lg font-medium">Psychiatrist</p>
+                                                <p class="text-sm text-gray-500 text-center">A doctor who can prescribe
+                                                    medicine</p>
+                                            </div>
+                                        </label>
+                                        <label for="prof_psychologist"
+                                            class="col-span-1 p-6 border rounded-xl cursor-pointer transition duration-300">
+                                            <input type="radio" id="prof_psychologist" name="professional"
+                                                value="Psychologist" class="hidden" onclick="selectBtn(this)">
+                                            <div class="flex flex-col items-center justify-center">
+                                                <span class="text-4xl">👩‍🏫</span>
+                                                <p class="mt-2 text-lg font-medium">Psychologist</p>
+                                            </div>
+                                        </label>
+                                        <label for="prof_neutral"
+                                            class="col-span-1 p-6 border rounded-xl cursor-pointer transition duration-300">
+                                            <input type="radio" id="prof_neutral" name="professional"
+                                                value="Doesn't matter" class="hidden" onclick="selectBtn(this)">
+                                            <div class="flex flex-col items-center justify-center">
+                                                <span class="text-4xl">➖</span>
+                                                <p class="mt-2 text-lg font-medium">Doesn't matter</p>
+                                            </div>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div data-step="3" class="step-container">
+                                    <h2 class="text-2xl font-semibold text-gray-800 text-center mb-6">What is the
+                                        therapist gender that you prefer?</h2>
+                                    <div class="grid grid-cols-3 gap-6 select-btn-group">
+                                        <label for="gender_male"
+                                            class="col-span-1 p-6 border rounded-xl cursor-pointer transition duration-300">
+                                            <input type="radio" id="gender_male" name="gender" value="Male"
+                                                class="hidden" onclick="selectBtn(this)">
+                                            <div class="flex flex-col items-center justify-center">
+                                                <span class="text-4xl">♂️</span>
+                                                <p class="mt-2 text-lg font-medium">Male</p>
+                                            </div>
+                                        </label>
+                                        <label for="gender_female"
+                                            class="col-span-1 p-6 border rounded-xl cursor-pointer transition duration-300">
+                                            <input type="radio" id="gender_female" name="gender" value="Female"
+                                                class="hidden" onclick="selectBtn(this)">
+                                            <div class="flex flex-col items-center justify-center">
+                                                <span class="text-4xl">♀️</span>
+                                                <p class="mt-2 text-lg font-medium">Female</p>
+                                            </div>
+                                        </label>
+                                        <label for="gender_neutral"
+                                            class="col-span-1 p-6 border rounded-xl cursor-pointer transition duration-300">
+                                            <input type="radio" id="gender_neutral" name="gender" value="Doesn't matter"
+                                                class="hidden" onclick="selectBtn(this)">
+                                            <div class="flex flex-col items-center justify-center">
+                                                <span class="text-4xl">➖</span>
+                                                <p class="mt-2 text-lg font-medium">Doesn't matter</p>
+                                            </div>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div data-step="4" class="step-container">
+                                    <h2 class="text-2xl font-semibold text-gray-800 text-center mb-6">Select all
+                                        preferred languages (Multi-select)</h2>
+                                    <div class="grid grid-cols-2 gap-4">
+                                        <label
+                                            class="flex items-center p-4 border rounded-lg cursor-pointer hover:bg-gray-50 transition duration-150">
+                                            <input type="checkbox" name="language" value="English"
+                                                class="form-checkbox text-blue-600 rounded-sm focus:ring-blue-500 mr-3">
+                                            <span class="text-sm font-medium text-gray-700">English</span>
+                                        </label>
+                                        <label
+                                            class="flex items-center p-4 border rounded-lg cursor-pointer hover:bg-gray-50 transition duration-150">
+                                            <input type="checkbox" name="language" value="Arabic"
+                                                class="form-checkbox text-blue-600 rounded-sm focus:ring-blue-500 mr-3">
+                                            <span class="text-sm font-medium text-gray-700">Arabic</span>
+                                        </label>
+                                        <label
+                                            class="flex items-center p-4 border rounded-lg cursor-pointer hover:bg-gray-50 transition duration-150">
+                                            <input type="checkbox" name="language" value="Deutsch"
+                                                class="form-checkbox text-blue-600 rounded-sm focus:ring-blue-500 mr-3">
+                                            <span class="text-sm font-medium text-gray-700">Deutsch</span>
+                                        </label>
+                                        <label
+                                            class="flex items-center p-4 border rounded-lg cursor-pointer hover:bg-gray-50 transition duration-150">
+                                            <input type="checkbox" name="language" value="French"
+                                                class="form-checkbox text-blue-600 rounded-sm focus:ring-blue-500 mr-3">
+                                            <span class="text-sm font-medium text-gray-700">French</span>
+                                        </label>
+                                        <label
+                                            class="flex items-center p-4 border rounded-lg cursor-pointer hover:bg-gray-50 transition duration-150">
+                                            <input type="checkbox" name="language" value="Hindi"
+                                                class="form-checkbox text-blue-600 rounded-sm focus:ring-blue-500 mr-3">
+                                            <span class="text-sm font-medium text-gray-700">Hindi</span>
+                                        </label>
+                                        <label
+                                            class="flex items-center p-4 border rounded-lg cursor-pointer hover:bg-gray-50 transition duration-150">
+                                            <input type="checkbox" name="language" value="Italian"
+                                                class="form-checkbox text-blue-600 rounded-sm focus:ring-blue-500 mr-3">
+                                            <span class="text-sm font-medium text-gray-700">Italian</span>
+                                        </label>
+                                        <label
+                                            class="flex items-center p-4 border rounded-lg cursor-pointer hover:bg-gray-50 transition duration-150">
+                                            <input type="checkbox" name="language" value="Dutch"
+                                                class="form-checkbox text-blue-600 rounded-sm focus:ring-blue-500 mr-3">
+                                            <span class="text-sm font-medium text-gray-700">Dutch</span>
+                                        </label>
+                                        <label
+                                            class="flex items-center p-4 border rounded-lg cursor-pointer hover:bg-gray-50 transition duration-150">
+                                            <input type="checkbox" name="language" value="Spanish"
+                                                class="form-checkbox text-blue-600 rounded-sm focus:ring-blue-500 mr-3">
+                                            <span class="text-sm font-medium text-gray-700">Spanish</span>
+                                        </label>
+                                        <label
+                                            class="flex items-center p-4 border rounded-lg cursor-pointer hover:bg-gray-50 transition duration-150">
+                                            <input type="checkbox" name="language" value="Farsi"
+                                                class="form-checkbox text-blue-600 rounded-sm focus:ring-blue-500 mr-3">
+                                            <span class="text-sm font-medium text-gray-700">Farsi</span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div data-step="5" class="step-container">
+                                    <h2 class="text-2xl font-semibold text-gray-800 text-center mb-6">Would you like
+                                        your therapist to be from a specific nationality?</h2>
+                                    <div class="grid grid-cols-2 gap-4">
+                                        <label
+                                            class="flex items-center p-4 border rounded-lg cursor-pointer hover:bg-gray-50 transition duration-150">
+                                            <input type="checkbox" name="nationality" value="Algeria"
+                                                class="hidden peer">
+                                            <span class="mr-3 text-2xl">🇩🇿</span>
+                                            <span class="text-sm font-medium text-gray-700">Algeria</span>
+                                        </label>
+                                        <label
+                                            class="flex items-center p-4 border rounded-lg cursor-pointer hover:bg-gray-50 transition duration-150">
+                                            <input type="checkbox" name="nationality" value="Bahrain"
+                                                class="hidden peer">
+                                            <span class="mr-3 text-2xl">🇧🇭</span>
+                                            <span class="text-sm font-medium text-gray-700">Bahrain</span>
+                                        </label>
+                                        <label
+                                            class="flex items-center p-4 border rounded-lg cursor-pointer hover:bg-gray-50 transition duration-150">
+                                            <input type="checkbox" name="nationality" value="Canada"
+                                                class="hidden peer">
+                                            <span class="mr-3 text-2xl">🇨🇦</span>
+                                            <span class="text-sm font-medium text-gray-700">Canada</span>
+                                        </label>
+                                        <label
+                                            class="flex items-center p-4 border rounded-lg cursor-pointer hover:bg-gray-50 transition duration-150">
+                                            <input type="checkbox" name="nationality" value="Egypt" class="hidden peer">
+                                            <span class="mr-3 text-2xl">🇪🇬</span>
+                                            <span class="text-sm font-medium text-gray-700">Egypt</span>
+                                        </label>
+                                        <label
+                                            class="flex items-center p-4 border rounded-lg cursor-pointer hover:bg-gray-50 transition duration-150">
+                                            <input type="checkbox" name="nationality" value="France"
+                                                class="hidden peer">
+                                            <span class="mr-3 text-2xl">🇫🇷</span>
+                                            <span class="text-sm font-medium text-gray-700">France</span>
+                                        </label>
+                                        <label
+                                            class="flex items-center p-4 border rounded-lg cursor-pointer hover:bg-gray-50 transition duration-150">
+                                            <input type="checkbox" name="nationality" value="Germany"
+                                                class="hidden peer">
+                                            <span class="mr-3 text-2xl">🇩🇪</span>
+                                            <span class="text-sm font-medium text-gray-700">Germany</span>
+                                        </label>
+                                        <label
+                                            class="flex items-center p-4 border rounded-lg cursor-pointer hover:bg-gray-50 transition duration-150">
+                                            <input type="checkbox" name="nationality" value="Jordan"
+                                                class="hidden peer">
+                                            <span class="mr-3 text-2xl">🇯🇴</span>
+                                            <span class="text-sm font-medium text-gray-700">Jordan</span>
+                                        </label>
+                                        <label
+                                            class="flex items-center p-4 border rounded-lg cursor-pointer hover:bg-gray-50 transition duration-150">
+                                            <input type="checkbox" name="nationality" value="Lebanon"
+                                                class="hidden peer">
+                                            <span class="mr-3 text-2xl">🇱🇧</span>
+                                            <span class="text-sm font-medium text-gray-700">Lebanon</span>
+                                        </label>
+                                        <label
+                                            class="flex items-center p-4 border rounded-lg cursor-pointer hover:bg-gray-50 transition duration-150">
+                                            <input type="checkbox" name="nationality" value="Libya" class="hidden peer">
+                                            <span class="mr-3 text-2xl">🇱🇾</span>
+                                            <span class="text-sm font-medium text-gray-700">Libya</span>
+                                        </label>
+                                        <label
+                                            class="flex items-center p-4 border rounded-lg cursor-pointer hover:bg-gray-50 transition duration-150">
+                                            <input type="checkbox" name="nationality" value="Malaysia"
+                                                class="hidden peer">
+                                            <span class="mr-3 text-2xl">🇲🇾</span>
+                                            <span class="text-sm font-medium text-gray-700">Malaysia</span>
+                                        </label>
+                                        <label
+                                            class="flex items-center p-4 border rounded-lg cursor-pointer hover:bg-gray-50 transition duration-150">
+                                            <input type="checkbox" name="nationality" value="Netherlands"
+                                                class="hidden peer">
+                                            <span class="mr-3 text-2xl">🇳🇱</span>
+                                            <span class="text-sm font-medium text-gray-700">Netherlands</span>
+                                        </label>
+                                        <label
+                                            class="flex items-center p-4 border rounded-lg cursor-pointer hover:bg-gray-50 transition duration-150">
+                                            <input type="checkbox" name="nationality" value="Oman" class="hidden peer">
+                                            <span class="mr-3 text-2xl">🇴🇲</span>
+                                            <span class="text-sm font-medium text-gray-700">Oman</span>
+                                        </label>
+                                        <label
+                                            class="flex items-center p-4 border rounded-lg cursor-pointer hover:bg-gray-50 transition duration-150">
+                                            <input type="checkbox" name="nationality" value="Palestine"
+                                                class="hidden peer">
+                                            <span class="mr-3 text-2xl">🇵🇸</span>
+                                            <span class="text-sm font-medium text-gray-700">Palestine</span>
+                                        </label>
+                                        <label
+                                            class="flex items-center p-4 border rounded-lg cursor-pointer hover:bg-gray-50 transition duration-150">
+                                            <input type="checkbox" name="nationality" value="Qatar" class="hidden peer">
+                                            <span class="mr-3 text-2xl">🇶🇦</span>
+                                            <span class="text-sm font-medium text-gray-700">Qatar</span>
+                                        </label>
+                                        <label
+                                            class="flex items-center p-4 border rounded-lg cursor-pointer hover:bg-gray-50 transition duration-150">
+                                            <input type="checkbox" name="nationality" value="Romania"
+                                                class="hidden peer">
+                                            <span class="mr-3 text-2xl">🇷🇴</span>
+                                            <span class="text-sm font-medium text-gray-700">Romania</span>
+                                        </label>
+                                        <label
+                                            class="flex items-center p-4 border rounded-lg cursor-pointer hover:bg-gray-50 transition duration-150">
+                                            <input type="checkbox" name="nationality" value="Saudi Arabia"
+                                                class="hidden peer">
+                                            <span class="mr-3 text-2xl">🇸🇦</span>
+                                            <span class="text-sm font-medium text-gray-700">Saudi Arabia</span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div data-step="6" class="step-container">
+                                    <h2 class="text-2xl font-semibold text-gray-800 text-center mb-12">What is your
+                                        budget for psychotherapy?</h2>
+
+                                    <div class="flex justify-between text-gray-600 mb-8">
+                                        <div class="p-4 border rounded-xl bg-blue-50">
+                                            <p class="text-sm text-gray-500">FROM</p>
+                                            <p id="budget-from-display" class="text-lg font-bold text-blue-800">300 USD
+                                            </p>
+                                        </div>
+                                        <div class="p-4 border rounded-xl bg-blue-50">
+                                            <p class="text-sm text-gray-500">TO</p>
+                                            <p id="budget-to-display" class="text-lg font-bold text-blue-800">1000 USD
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="relative pt-1">
+                                        <input type="range" id="budget-from" name="budget_from" min="140" max="4700"
+                                            value="300"
+                                            class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer range-slider-thumb-blue">
+                                        <input type="range" id="budget-to" name="budget_to" min="140" max="4700"
+                                            value="1000"
+                                            class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer range-slider-thumb-blue mt-[-10px]">
+                                        <div class="flex justify-between text-xs text-gray-500 mt-2">
+                                            <span>140 USD</span>
+                                            <span>4700 USD</span>
                                         </div>
                                     </div>
                                 </div>
+
                             </div>
-                            <div
-                                class="border-t border-border-light dark:border-border-dark px-6 py-4 flex items-center justify-between text-sm text-muted-foreground-light dark:text-muted-foreground-dark">
-                                <span>Step 1 of 3</span>
-                                <div class="flex items-center gap-2">
-                                    <span class="material-symbols-outlined text-base">lock</span>
-                                    <span>Your privacy is protected</span>
-                                </div>
+                            <div class="flex justify-between mt-10 border-t pt-6">
+                                <button id="back-btn" onclick="prevStep()"
+                                    class="bg-white text-gray-700 border border-gray-300 py-2 px-6 rounded-full font-medium hover:bg-gray-100 transition duration-200 shadow-sm"
+                                    style="display: none;">
+                                    Back
+                                </button>
+                                <button id="next-btn" onclick="nextStep()"
+                                    class="bg-brand-primary text-white py-2 px-6 rounded-full font-medium hover:bg-blue-700 transition duration-200 ml-auto shadow-md">
+                                    Next
+                                </button>
+                                <a id="finish-btn" href="./list.html"
+                                    class="bg-brand-primary text-white py-2 px-6 rounded-full font-medium hover:bg-green-700 transition duration-200 ml-auto shadow-md"
+                                    style="display: none;">
+                                    Finish
+                                </a>
                             </div>
+
                         </div>
+
+
+
+
                     </div>
                 </div>
             </main>
@@ -301,6 +680,149 @@
             </footer>
         </div>
     </div>
+
+    <script>
+        let currentStep = 1;
+        const totalSteps = 6;
+        const stepContainers = document.querySelectorAll('.step-container');
+        const progressBar = document.getElementById('progress-bar');
+        const backBtn = document.getElementById('back-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const finishBtn = document.getElementById('finish-btn');
+        const budgetFromSlider = document.getElementById('budget-from');
+        const budgetToSlider = document.getElementById('budget-to');
+        const budgetFromDisplay = document.getElementById('budget-from-display');
+        const budgetToDisplay = document.getElementById('budget-to-display');
+
+        // Initial setup for the first step
+        updateStep(currentStep);
+
+        // --- Helper Functions ---
+
+        // Function to handle the custom button selection (radio inputs)
+        function selectBtn(input) {
+            const group = input.closest('.select-btn-group');
+            if (group) {
+                // Remove 'selected' class from all labels in the group
+                group.querySelectorAll('label').forEach(label => {
+                    label.classList.remove('selected');
+                });
+                // Add 'selected' class to the parent label of the clicked input
+                input.closest('label').classList.add('selected');
+            }
+        }
+
+        // Function to update the budget display
+        function updateBudgetDisplay() {
+            const fromValue = parseInt(budgetFromSlider.value);
+            const toValue = parseInt(budgetToSlider.value);
+
+            // Ensure 'From' doesn't exceed 'To' and 'To' doesn't go below 'From'
+            if (fromValue > toValue) {
+                budgetToSlider.value = fromValue;
+            }
+            if (toValue < fromValue) {
+                budgetFromSlider.value = toValue;
+            }
+
+            budgetFromDisplay.textContent = `${budgetFromSlider.value} USD`;
+            budgetToDisplay.textContent = `${budgetToSlider.value} USD`;
+        }
+
+        // Attach event listeners for budget sliders
+        budgetFromSlider.addEventListener('input', updateBudgetDisplay);
+        budgetToSlider.addEventListener('input', updateBudgetDisplay);
+        updateBudgetDisplay(); // Initial update
+
+        // Function to update the visual state of the wizard
+        function updateStep(newStep) {
+            // Calculate progress
+            const progress = (newStep / totalSteps) * 100;
+            progressBar.style.width = `${progress}%`;
+
+            // Hide/Show steps with transition
+            stepContainers.forEach(container => {
+                const stepNum = parseInt(container.getAttribute('data-step'));
+                if (stepNum === newStep) {
+                    // Current Step: Wait for others to transition out, then show
+                    setTimeout(() => {
+                        container.classList.remove('leaving');
+                        container.classList.add('active');
+                    }, 250); // Delay for half the transition time
+                } else if (container.classList.contains('active')) {
+                    // Leaving Step: Start transition out
+                    container.classList.remove('active');
+                    container.classList.add('leaving');
+                } else {
+                    // Hidden Steps
+                    container.classList.remove('leaving');
+                }
+            });
+
+            // Update navigation buttons
+            backBtn.style.display = newStep > 1 ? 'block' : 'none';
+
+            if (newStep === totalSteps) {
+                nextBtn.style.display = 'none';
+                finishBtn.style.display = 'block';
+            } else {
+                nextBtn.style.display = 'block';
+                finishBtn.style.display = 'none';
+            }
+
+            currentStep = newStep;
+        }
+
+        // --- Navigation Handlers ---
+
+        function nextStep() {
+            if (currentStep < totalSteps) {
+                updateStep(currentStep + 1);
+            }
+        }
+
+        function prevStep() {
+            if (currentStep > 1) {
+                updateStep(currentStep - 1);
+            }
+        }
+
+        function submitForm() {
+            alert('Wizard Finished! Data can now be submitted.');
+            // In a real application, you would collect the form data here and submit it.
+        }
+
+        // Style Checkbox/Radio inputs to mimic the original design's selection state
+        document.querySelectorAll('input[type="checkbox"][name="reason"]').forEach(input => {
+            input.addEventListener('change', (e) => {
+                e.target.closest('label').classList.toggle('bg-blue-50', e.target.checked);
+                e.target.closest('label').classList.toggle('border-blue-500', e.target.checked);
+                e.target.closest('label').classList.toggle('shadow-sm', e.target.checked);
+            });
+        });
+
+        document.querySelectorAll('input[type="checkbox"][name="nationality"]').forEach(input => {
+            input.addEventListener('change', (e) => {
+                e.target.closest('label').classList.toggle('bg-blue-50', e.target.checked);
+                e.target.closest('label').classList.toggle('border-blue-500', e.target.checked);
+                e.target.closest('label').classList.toggle('shadow-sm', e.target.checked);
+            });
+        });
+
+        // Language checkboxes are styled slightly differently (standard checkbox visible)
+        document.querySelectorAll('input[type="checkbox"][name="language"]').forEach(input => {
+            input.addEventListener('change', (e) => {
+                e.target.closest('label').classList.toggle('bg-blue-50', e.target.checked);
+                e.target.closest('label').classList.toggle('border-blue-500', e.target.checked);
+            });
+        });
+
+        // Initialize radio selections (professional and gender)
+        document.querySelectorAll('input[name="professional"]:checked, input[name="gender"]:checked').forEach(input => {
+            selectBtn(input);
+        });
+
+    </script>
 </body>
 
 </html>
